@@ -23,6 +23,7 @@
 		054ACF2F18AA8A8700AAF46F /* DealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 054ACF2E18AA8A8700AAF46F /* DealViewController.m */; };
 		054ACF3218AA98FC00AAF46F /* ViewDealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 054ACF3118AA98FC00AAF46F /* ViewDealsViewController.m */; };
 		054ACF3518AAD26400AAF46F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054ACF3318AAD26400AAF46F /* Main.storyboard */; };
+		054ACF3818AAE1F800AAF46F /* DealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 054ACF3718AAE1F800AAF46F /* DealDetailViewController.m */; };
 		4F8A74134B52495DB4F28D29 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B8D92DCB874BF3905BFDA7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		054ACF3018AA98FC00AAF46F /* ViewDealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewDealsViewController.h; sourceTree = "<group>"; };
 		054ACF3118AA98FC00AAF46F /* ViewDealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewDealsViewController.m; sourceTree = "<group>"; };
 		054ACF3418AAD26400AAF46F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		054ACF3618AAE1F800AAF46F /* DealDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailViewController.h; sourceTree = "<group>"; };
+		054ACF3718AAE1F800AAF46F /* DealDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailViewController.m; sourceTree = "<group>"; };
 		935918A2E99441BC9A530BF9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D4B8D92DCB874BF3905BFDA7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -133,6 +136,8 @@
 				054ACF0018A952EB00AAF46F /* ViewController.h */,
 				054ACF0118A952EB00AAF46F /* ViewController.m */,
 				054ACF3318AAD26400AAF46F /* Main.storyboard */,
+				054ACF3618AAE1F800AAF46F /* DealDetailViewController.h */,
+				054ACF3718AAE1F800AAF46F /* DealDetailViewController.m */,
 				054ACF0318A952EB00AAF46F /* Images.xcassets */,
 				054ACEF218A952EB00AAF46F /* Supporting Files */,
 			);
@@ -301,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				054ACF3218AA98FC00AAF46F /* ViewDealsViewController.m in Sources */,
+				054ACF3818AAE1F800AAF46F /* DealDetailViewController.m in Sources */,
 				054ACF2F18AA8A8700AAF46F /* DealViewController.m in Sources */,
 				054ACF0218A952EB00AAF46F /* ViewController.m in Sources */,
 				054ACEFC18A952EB00AAF46F /* AppDelegate.m in Sources */,
