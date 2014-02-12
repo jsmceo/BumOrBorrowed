@@ -10,7 +10,7 @@
 #import "Parse/Parse.h"
 
 
-@interface ViewController ()
+@interface ViewController () <PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 
 @end
 
@@ -25,4 +25,6 @@
     [user saveInBackground];
 
 }
+
+
 @end

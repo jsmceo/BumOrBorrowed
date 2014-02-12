@@ -9,6 +9,7 @@
 #import "DealDetailViewController.h"
 #import "Parse/Parse.h"
 
+
 @interface DealDetailViewController ()
 {
     __weak IBOutlet UITextField *lendorDealDetailViewTextField;
@@ -41,6 +42,7 @@
    //lendorDealDetailViewTextField.text =
 
 }
+
 
 
 @end
