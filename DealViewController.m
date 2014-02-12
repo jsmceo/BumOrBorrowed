@@ -16,8 +16,10 @@
     __weak IBOutlet UITextField *itemTextField;
     __weak IBOutlet UITextView *descriptionTextView;
     __weak IBOutlet UITextField *dealNameTextField;
-  //  __weak IBOutlet UIDatePicker *dealStartDatePicker;
+    __weak IBOutlet UIDatePicker *datePicker;
+    __weak IBOutlet UISegmentedControl *segmentedControl;
     
+    PFObject *deal;
 }
 
 @end
@@ -26,19 +28,24 @@
 
 - (void)viewDidLoad
 {
+    [self.view endEditing:YES];
+    
+    
+    deal = [PFObject objectWithClassName:@"Deal"];
+    deal[@"startdate"] = [NSDate date];
+    deal[@"enddate"] = [NSDate dateWithTimeInterval:60*60*24*7 sinceDate:deal[@"startdate"]];
+
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
 }
 
 - (IBAction)onSaveButtonPressed:(id)sender
 {
-    PFObject *deal = [PFObject objectWithClassName:@"Deal"];
     deal [@"dealtitle"] = dealNameTextField.text;
     deal [@"lendor"] = lendorTextField.text;
     deal [@"borrower"] = borrowerTextField.text;
     deal [@"item"] = itemTextField.text;
     deal [@"description"] = descriptionTextView.text;
-   // deal [@]
 
     [deal saveInBackground];
 }
@@ -46,12 +53,16 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    
     [super viewDidAppear:animated];
     
-    
+
     if (![PFUser currentUser]) {
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        //logInViewController.fields = PFLogInFieldsFacebook | PFLogInFieldsTwitter;
         [logInViewController setDelegate:self];
+       // [logInViewController setFields:PFLogInFieldsFacebook];
+
         
         [self performSegueWithIdentifier:@"SignInSegue" sender:self];
     }
@@ -91,6 +102,27 @@
     [logInController dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+- (IBAction)onDatePickerDateChanged:(UIDatePicker *)sender {
+    if (segmentedControl.selectedSegmentIndex == 0) {
+        deal[@"startdate"] = datePicker.date;
+        deal[@"enddate"] = [NSDate dateWithTimeInterval:60*60*24*7 sinceDate:datePicker.date];
+    } else {
+        deal[@"enddate"] = datePicker.date;
+    }
+}
+
+- (IBAction)segmentedControlDatePicker:(UISegmentedControl *)sender
+{
+    if (sender.selectedSegmentIndex == 0) {
+        datePicker.date = [deal objectForKey:@"startdate"];
+    } else {
+        datePicker.date = [deal objectForKey:@"enddate"];
+    }
+}
+
+
+
 
 
 @end

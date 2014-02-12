@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
+#import "ViewDealsViewController.h"
 
 @interface DealDetailViewController : UIViewController
-
+@property PFObject *deal;
 @end
