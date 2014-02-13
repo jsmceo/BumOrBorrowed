@@ -262,18 +262,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Dh-ea-Wc4">
-                                <rect key="frame" x="150.5" y="205" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Deal Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ag-lu-Sow">
-                                <rect key="frame" x="20" y="209" width="95" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="3VI-Ww-19J">
                                 <rect key="frame" x="0.0" y="399" width="320" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -330,7 +318,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="borrowerDealDetailViewTextField" destination="aII-em-mp4" id="TKz-N4-0Ht"/>
                         <outlet property="bottomrReturnItemTextlabel" destination="gEn-xd-jNe" id="FZD-kE-qop"/>
                         <outlet property="createdDateDealDetailViewTextField" destination="N0a-4c-Lle" id="TgK-Xh-w0E"/>
-                        <outlet property="dealNameDealDetailViewTextField" destination="9Dh-ea-Wc4" id="B8g-O5-Np6"/>
                         <outlet property="descriptionDealDetailViewTextView" destination="3VI-Ww-19J" id="xce-xG-Dt9"/>
                         <outlet property="endDateDealDetailViewTextField" destination="MEx-sv-Gvt" id="Gfo-RF-cpz"/>
                         <outlet property="itemDealDetailViewTextField" destination="gF2-2D-hXM" id="FUA-uS-Rax"/>

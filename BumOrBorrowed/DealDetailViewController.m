@@ -19,7 +19,6 @@
     
     __weak IBOutlet UITextField *itemDealDetailViewTextField;
     
-    __weak IBOutlet UITextField *dealNameDealDetailViewTextField;
     
     __weak IBOutlet UITextField *createdDateDealDetailViewTextField;
     
@@ -46,7 +45,6 @@
     [super viewDidLoad];
 
 
-    dealNameDealDetailViewTextField.text = [_deal objectForKey:@"dealtitle"];
     lendorDealDetailViewTextField.text = [_deal objectForKey:@"lendor"];
     borrowerDealDetailViewTextField.text = [_deal objectForKey:@"borrower"];
     itemDealDetailViewTextField.text = [_deal objectForKey:@"item"];
