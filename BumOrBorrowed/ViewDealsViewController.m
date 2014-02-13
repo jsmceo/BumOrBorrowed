@@ -29,6 +29,9 @@
     [super viewDidLoad];
 }
 
+
+
+
 -(PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     PFTableViewCell *dealCell = [tableView dequeueReusableCellWithIdentifier:@"reuseID"];

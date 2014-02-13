@@ -30,6 +30,7 @@
     
     __weak IBOutlet UINavigationItem *navBarDealTitle;
     
+    __weak IBOutlet UILabel *bottomrReturnItemTextlabel;
 }
 
 @end
@@ -58,6 +59,9 @@
     
     navBarDealTitle.title = [_deal objectForKey:@"dealtitle"];
     
+   // bottomItemReturnTextView.text
+    
+    bottomrReturnItemTextlabel.text= [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
 
 
 

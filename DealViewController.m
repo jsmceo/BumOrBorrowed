@@ -28,8 +28,7 @@
 
 - (void)viewDidLoad
 {
-    [self.view endEditing:YES];
-    
+  //  [lendorTextField resignFirstResponder];
     
     deal = [PFObject objectWithClassName:@"Deal"];
     deal[@"startdate"] = [NSDate date];
@@ -41,7 +40,10 @@
 
 - (IBAction)onSaveButtonPressed:(id)sender
 {
-    deal [@"dealtitle"] = dealNameTextField.text;
+  
+    //deal [@"dealtitle"] = dealNameTextField.text;
+    deal [@"dealtitle"] =[NSString stringWithFormat: @"%@ Lends %@ %@", lendorTextField.text, borrowerTextField.text, itemTextField.text];
+    
     deal [@"lendor"] = lendorTextField.text;
     deal [@"borrower"] = borrowerTextField.text;
     deal [@"item"] = itemTextField.text;
@@ -49,6 +51,7 @@
 
     [deal saveInBackground];
 }
+
 
 
 -(void)viewDidAppear:(BOOL)animated
@@ -59,9 +62,9 @@
 
     if (![PFUser currentUser]) {
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        //logInViewController.fields = PFLogInFieldsFacebook | PFLogInFieldsTwitter;
+        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
+        
         [logInViewController setDelegate:self];
-       // [logInViewController setFields:PFLogInFieldsFacebook];
 
         
         [self performSegueWithIdentifier:@"SignInSegue" sender:self];
@@ -82,12 +85,15 @@
     label.text = @"iBorrow Login";
     [label sizeToFit];
     login.logInView.logo = label;
+    label.textColor = [UIColor greenColor];
+    //label.te =
     
     
     label = [[UILabel alloc]initWithFrame:CGRectZero];
     label.text = @"iBorrow Sign Up";
     [label sizeToFit];
     login.signUpController.signUpView.logo = label;
+    label.textColor = [UIColor greenColor];
 }
 
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
