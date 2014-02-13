@@ -34,6 +34,7 @@
     deal[@"enddate"] = [NSDate dateWithTimeInterval:60*60*24*7 sinceDate:deal[@"startdate"]];
 
     [super viewDidLoad];
+    
 
 }
 

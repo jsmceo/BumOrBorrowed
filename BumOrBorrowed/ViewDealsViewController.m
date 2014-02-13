@@ -13,7 +13,8 @@
 
 @interface ViewDealsViewController () <UITableViewDataSource,UITableViewDelegate>
 {
-    
+    PFObject *deal;
+
 }
 
 @end
@@ -25,6 +26,8 @@
 - (void)viewDidLoad
 {
     
+    deal = [PFObject objectWithClassName:@"Deal"];
+
     self.parseClassName = @"Deal";
  
     [super viewDidLoad];
@@ -42,11 +45,23 @@
     dealCell.textLabel.text = [object objectForKey:@"dealtitle"];
     dealCell.detailTextLabel.text = [[object objectForKey:@"enddate"] description];
     
-    
-
+    if ([[deal objectForKey:@"isdealdone"]  isEqual: @NO]) {
+        NSLog(@"%@", [deal objectForKey:@"isdealdone"]);
+        //deal [[dealCell.textLabel.textColor] = [UIColor redColor]];
+        dealCell.textLabel.textColor = [UIColor redColor]; }
+        
+    else{
+        dealCell.textLabel.textColor = [UIColor greenColor];
+    }
+        
+        
+        
+        
     
     return dealCell;
 }
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -58,7 +73,7 @@
     if ([[ segue identifier] isEqualToString:@"dealSegue"])
     {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        PFObject *deal = [self objectAtIndexPath:indexPath];
+        deal = [self objectAtIndexPath:indexPath];
         
         
         
@@ -71,7 +86,11 @@
 
 -(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender
 {
+    PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
+    [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
     
+    deal [@"isdealdone"] = @NO;
+    [deal saveInBackground];
 }
 
 @end
