@@ -26,6 +26,7 @@
 {
     
     self.parseClassName = @"Deal";
+ 
     [super viewDidLoad];
 }
 
@@ -40,6 +41,9 @@
     }
     dealCell.textLabel.text = [object objectForKey:@"dealtitle"];
     dealCell.detailTextLabel.text = [[object objectForKey:@"enddate"] description];
+    
+    
+
     
     return dealCell;
 }
@@ -56,12 +60,18 @@
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         PFObject *deal = [self objectAtIndexPath:indexPath];
         
+        
+        
         //[PFQueryTableViewController.indexPath.row];     //[[self objectAtIndexPath:indexPath]];
     
         DealDetailViewController *vc = segue.destinationViewController;
         vc.deal = deal;
-        }
+    }
 }
 
+-(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender
+{
+    
+}
 
 @end

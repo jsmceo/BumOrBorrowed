@@ -57,13 +57,15 @@
     
     navBarDealTitle.title = [_deal objectForKey:@"dealtitle"];
     
-   // bottomItemReturnTextView.text
-    
     bottomrReturnItemTextlabel.text= [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
-
-
-
+    
+    
+//    bottomReturnItemButton.font = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
 }
+
+
+
+
 
 
 

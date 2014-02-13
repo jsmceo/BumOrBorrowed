@@ -15,7 +15,6 @@
     __weak IBOutlet UITextField *borrowerTextField;
     __weak IBOutlet UITextField *itemTextField;
     __weak IBOutlet UITextView *descriptionTextView;
-    __weak IBOutlet UITextField *dealNameTextField;
     __weak IBOutlet UIDatePicker *datePicker;
     __weak IBOutlet UISegmentedControl *segmentedControl;
     
