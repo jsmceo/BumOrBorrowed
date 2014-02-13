@@ -18,11 +18,12 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    PFObject * user = [PFObject objectWithClassName:@"User"];
-    user [@"user"] = @"John";
-    user [@"username"] = @2;
-    [user saveInBackground];
+    
+//    [super viewDidLoad];
+//    PFObject * user = [PFObject objectWithClassName:@"User"];
+//    user [@"user"] = @"John";
+//    user [@"username"] = @2;
+//    [user saveInBackground];
 
 }
 
