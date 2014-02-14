@@ -48,6 +48,7 @@
     deal [@"borrower"] = borrowerTextField.text;
     deal [@"item"] = itemTextField.text;
     deal [@"description"] = descriptionTextView.text;
+    deal [@"isdealdone"] = @NO;
 
     [deal saveInBackground];
 }

@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     
+    
     deal = [PFObject objectWithClassName:@"Deal"];
 
     self.parseClassName = @"Deal";
@@ -45,13 +46,16 @@
     dealCell.textLabel.text = [object objectForKey:@"dealtitle"];
     dealCell.detailTextLabel.text = [[object objectForKey:@"enddate"] description];
     
-    if ([[deal objectForKey:@"isdealdone"]  isEqual: @NO]) {
-        NSLog(@"%@", [deal objectForKey:@"isdealdone"]);
+    if ([[object objectForKey:@"isdealdone"] boolValue] ) {
+        NSLog(@"%@", deal);
         //deal [[dealCell.textLabel.textColor] = [UIColor redColor]];
-        dealCell.textLabel.textColor = [UIColor redColor]; }
+        dealCell.textLabel.textColor = [UIColor redColor];
+        dealCell.detailTextLabel.textColor = [UIColor redColor];
+    }
         
     else{
         dealCell.textLabel.textColor = [UIColor greenColor];
+        dealCell.detailTextLabel.textColor = [UIColor greenColor];
     }
         
         
@@ -89,8 +93,10 @@
     PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
     [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
     
-    deal [@"isdealdone"] = @NO;
+    deal [@"isdealdone"] = @YES;
     [deal saveInBackground];
+    
+    
 }
 
 @end
