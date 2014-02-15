@@ -29,7 +29,7 @@
     
     __weak IBOutlet UINavigationItem *navBarDealTitle;
     
-    __weak IBOutlet UILabel *bottomrReturnItemTextlabel;
+    __weak IBOutlet UIButton *returnItemButton;
 }
 
 @end
@@ -57,10 +57,12 @@
     
     navBarDealTitle.title = [_deal objectForKey:@"dealtitle"];
     
-    bottomrReturnItemTextlabel.text= [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
+   returnItemButton.titleLabel.text = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
+    
+    //not sure why this wont change text
     
     
-//    bottomReturnItemButton.font = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
+    
 }
 
 

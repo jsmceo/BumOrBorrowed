@@ -4,6 +4,25 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="Rzg-ea-hIv">
+            <objects>
+                <viewController id="UN6-Xx-dT5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LoL-u4-coI"/>
+                        <viewControllerLayoutGuide type="bottom" id="jgL-rq-7lt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HTa-my-mjE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ggW-Fk-Hqf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="59D-wd-ey8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1166" y="-704"/>
+        </scene>
         <!--Deal View Controller - Enter A Deal-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -127,6 +146,17 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="segmentedControlDatePicker:" destination="vXZ-lx-hvc" eventType="valueChanged" id="2Kc-ua-4Mn"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWX-sQ-8cy">
+                                <rect key="frame" x="16" y="218" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="itemImagePicker:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Kg-Xm-o26"/>
+                                    <segue destination="UN6-Xx-dT5" kind="push" id="j06-YH-gKt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -143,7 +173,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="4"/>
+            <point key="canvasLocation" x="1166" y="-4"/>
         </scene>
         <!--Log In View Controller - Signin ViewController-->
         <scene sceneID="5cY-dR-f0X">
@@ -163,7 +193,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="1166" y="724"/>
         </scene>
-        <!--View Deals View Controller - Your Pending Deals-->
+        <!--View Deals View Controller-->
         <scene sceneID="Ya8-7h-eAy">
             <objects>
                 <tableViewController id="Vy7-XV-eat" customClass="ViewDealsViewController" sceneMemberID="viewController">
@@ -207,11 +237,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <outlet property="delegate" destination="Vy7-XV-eat" id="zOT-zD-p8q"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Your Pending Deals" id="wcs-l2-f20"/>
+                    <navigationItem key="navigationItem" id="wcs-l2-f20">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="fmo-w9-5Yl">
+                            <rect key="frame" x="87" y="7" width="147" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="MyStuff"/>
+                                <segment title="TheirStuff"/>
+                            </segments>
+                        </segmentedControl>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZn-ap-SOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="4"/>
+            <point key="canvasLocation" x="1733" y="-11"/>
         </scene>
         <!--Deal Detail View Controller - Deal Detail-->
         <scene sceneID="7gL-TE-0my">
@@ -302,20 +342,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" red="0.1602581344" green="0.900390625" blue="0.098179629520000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" preferredMaxLayoutWidth="112" translatesAutoresizingMaskIntoConstraints="NO" id="gEn-xd-jNe">
-                                <rect key="frame" x="104" y="531" width="112" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-Ht-QvE">
+                                <rect key="frame" x="107" y="538" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1602581344" green="0.900390625" blue="0.098179629520000006" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-Ht-QvE">
-                                <rect key="frame" x="137" y="503" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Return Item!">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="toolTip"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="qKs-4g-sti" kind="unwind" unwindAction="unwindFromDealDetail:" id="S3X-0K-cPf"/>
@@ -327,19 +367,19 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Deal Detail" id="doA-nv-mku"/>
                     <connections>
                         <outlet property="borrowerDealDetailViewTextField" destination="aII-em-mp4" id="TKz-N4-0Ht"/>
-                        <outlet property="bottomrReturnItemTextlabel" destination="gEn-xd-jNe" id="FZD-kE-qop"/>
                         <outlet property="createdDateDealDetailViewTextField" destination="N0a-4c-Lle" id="TgK-Xh-w0E"/>
                         <outlet property="descriptionDealDetailViewTextView" destination="3VI-Ww-19J" id="xce-xG-Dt9"/>
                         <outlet property="endDateDealDetailViewTextField" destination="MEx-sv-Gvt" id="Gfo-RF-cpz"/>
                         <outlet property="itemDealDetailViewTextField" destination="gF2-2D-hXM" id="FUA-uS-Rax"/>
                         <outlet property="lendorDealDetailViewTextField" destination="EQl-MI-2Lo" id="TQT-MJ-Bqf"/>
                         <outlet property="navBarDealTitle" destination="doA-nv-mku" id="ZVw-Dr-Hot"/>
+                        <outlet property="returnItemButton" destination="tfX-Ht-QvE" id="veg-Kj-uzm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MW-RW-38m" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qKs-4g-sti" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1719" y="-698"/>
+            <point key="canvasLocation" x="2263" y="-642"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XaR-Op-xWv">

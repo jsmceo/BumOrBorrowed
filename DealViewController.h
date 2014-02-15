@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DealViewController : UIViewController
+@interface DealViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property(strong, nonatomic)UIImagePickerController *imagePicker;
+
 
 @end
