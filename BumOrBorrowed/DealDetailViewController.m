@@ -57,9 +57,15 @@
     
     navBarDealTitle.title = [_deal objectForKey:@"dealtitle"];
     
-   returnItemButton.titleLabel.text = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
+  
     
-    //not sure why this wont change text
+   returnItemButton.titleLabel.text = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
+   
+   // [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateSelected];
+
+    
+
+    
     
     
     

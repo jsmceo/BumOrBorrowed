@@ -4,25 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="Rzg-ea-hIv">
-            <objects>
-                <viewController id="UN6-Xx-dT5" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="LoL-u4-coI"/>
-                        <viewControllerLayoutGuide type="bottom" id="jgL-rq-7lt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HTa-my-mjE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ggW-Fk-Hqf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="59D-wd-ey8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1166" y="-704"/>
-        </scene>
         <!--Deal View Controller - Enter A Deal-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -146,17 +127,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="segmentedControlDatePicker:" destination="vXZ-lx-hvc" eventType="valueChanged" id="2Kc-ua-4Mn"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWX-sQ-8cy">
-                                <rect key="frame" x="16" y="218" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="itemImagePicker:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2Kg-Xm-o26"/>
-                                    <segue destination="UN6-Xx-dT5" kind="push" id="j06-YH-gKt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -173,7 +143,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1166" y="-4"/>
+            <point key="canvasLocation" x="1068" y="4"/>
         </scene>
         <!--Log In View Controller - Signin ViewController-->
         <scene sceneID="5cY-dR-f0X">
@@ -203,11 +173,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.1602581344" green="0.900390625" blue="0.098179629520000006" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="center" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reuseID" textLabel="QSf-Pl-Ity" detailTextLabel="g5e-vc-TBF" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="afS-DV-SPR">
+                            <tableViewCell contentMode="center" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reuseID" textLabel="QSf-Pl-Ity" detailTextLabel="g5e-vc-TBF" rowHeight="70" style="IBUITableViewCellStyleSubtitle" id="afS-DV-SPR">
                                 <rect key="frame" x="0.0" y="86" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="afS-DV-SPR" id="GEM-Sv-jrl">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QSf-Pl-Ity">
@@ -251,7 +221,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZn-ap-SOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="-11"/>
+            <point key="canvasLocation" x="1745" y="4"/>
         </scene>
         <!--Deal Detail View Controller - Deal Detail-->
         <scene sceneID="7gL-TE-0my">
@@ -342,7 +312,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" red="0.1602581344" green="0.900390625" blue="0.098179629520000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-Ht-QvE">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfX-Ht-QvE">
                                 <rect key="frame" x="107" y="538" width="106" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

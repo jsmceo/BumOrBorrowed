@@ -52,6 +52,7 @@
         //deal [[dealCell.textLabel.textColor] = [UIColor redColor]];
         dealCell.textLabel.textColor = [UIColor redColor];
         dealCell.detailTextLabel.textColor = [UIColor redColor];
+        dealCell.accessoryType = UITableViewCellAccessoryCheckmark;
 
     
     }
@@ -59,6 +60,7 @@
     else{
         dealCell.textLabel.textColor = [UIColor greenColor];
         dealCell.detailTextLabel.textColor = [UIColor greenColor];
+        dealCell.accessoryType = UITableViewCellAccessoryNone;
     }
         
         
@@ -95,7 +97,6 @@
 {
     PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
     [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
-    
     
     
     deal [@"isdealdone"] = @YES;

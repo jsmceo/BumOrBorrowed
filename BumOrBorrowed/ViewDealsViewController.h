@@ -10,5 +10,5 @@
 #import "Parse/Parse.h"
 
 @interface ViewDealsViewController : PFQueryTableViewController
--(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender;
+//-(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender;
 @end
