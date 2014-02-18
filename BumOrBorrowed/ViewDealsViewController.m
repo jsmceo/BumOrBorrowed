@@ -53,16 +53,16 @@
     
 }
 
--(PFQuery *)queryForTable
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Deal"];
-    
-    [query orderByDescending:@"returndate"];
-    
-    return query;
-    
+//-(PFQuery *)queryForTable
+//{
+//    PFQuery *query = [PFQuery queryWithClassName:@"Deal"];
+//    
+//    [query orderByDescending:@"returndate"];
+//    
+//    return query;
+
     //not working as we'd like. still seems random but onto the right idea.
-}
+//}
 
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
