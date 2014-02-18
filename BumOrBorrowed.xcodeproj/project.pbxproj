@@ -38,6 +38,9 @@
 		05659C0B18B2D5F7004DD573 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05659C0A18B2D5F7004DD573 /* StoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		05659C0D18B2D608004DD573 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05659C0C18B2D608004DD573 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4F8A74134B52495DB4F28D29 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B8D92DCB874BF3905BFDA7 /* libPods.a */; };
+		F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F54EE85C18B3EBA3009821FA /* free-camera-icon.png */; };
+		F54EE86018B3FAE7009821FA /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85E18B3FAE7009821FA /* AddressBook.framework */; };
+		F54EE86118B3FAE7009821FA /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,9 @@
 		05659C0C18B2D608004DD573 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		935918A2E99441BC9A530BF9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D4B8D92DCB874BF3905BFDA7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54EE85C18B3EBA3009821FA /* free-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "free-camera-icon.png"; sourceTree = "<group>"; };
+		F54EE85E18B3FAE7009821FA /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54EE86018B3FAE7009821FA /* AddressBook.framework in Frameworks */,
+				F54EE86118B3FAE7009821FA /* AddressBookUI.framework in Frameworks */,
 				05659C0D18B2D608004DD573 /* SystemConfiguration.framework in Frameworks */,
 				05659C0B18B2D5F7004DD573 /* StoreKit.framework in Frameworks */,
 				05659C0918B2D5DB004DD573 /* QuartzCore.framework in Frameworks */,
@@ -155,6 +163,8 @@
 		054ACEEA18A952EB00AAF46F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F54EE85E18B3FAE7009821FA /* AddressBook.framework */,
+				F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */,
 				05659C0C18B2D608004DD573 /* SystemConfiguration.framework */,
 				05659C0A18B2D5F7004DD573 /* StoreKit.framework */,
 				05659C0818B2D5DB004DD573 /* QuartzCore.framework */,
@@ -193,6 +203,7 @@
 				054ACF3618AAE1F800AAF46F /* DealDetailViewController.h */,
 				054ACF3718AAE1F800AAF46F /* DealDetailViewController.m */,
 				054ACF0318A952EB00AAF46F /* Images.xcassets */,
+				F54EE85C18B3EBA3009821FA /* free-camera-icon.png */,
 				054ACEF218A952EB00AAF46F /* Supporting Files */,
 			);
 			path = BumOrBorrowed;
@@ -306,6 +317,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				054ACF3518AAD26400AAF46F /* Main.storyboard in Resources */,
+				F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */,
 				054ACF0418A952EB00AAF46F /* Images.xcassets in Resources */,
 				054ACEF618A952EB00AAF46F /* InfoPlist.strings in Resources */,
 			);
@@ -492,18 +504,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/JohnMalloy/Documents/FacebookSDK,
-					/Users/JohnMalloy/Developer/MM2014/BumOrBorrowed/Pods/Parse,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BumOrBorrowed/BumOrBorrowed-Prefix.pch";
 				INFOPLIST_FILE = "BumOrBorrowed/BumOrBorrowed-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/JohnMalloy/Documents/FacebookSDK/FacebookSDK.framework,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -515,18 +520,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/JohnMalloy/Documents/FacebookSDK,
-					/Users/JohnMalloy/Developer/MM2014/BumOrBorrowed/Pods/Parse,
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BumOrBorrowed/BumOrBorrowed-Prefix.pch";
 				INFOPLIST_FILE = "BumOrBorrowed/BumOrBorrowed-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/JohnMalloy/Documents/FacebookSDK/FacebookSDK.framework,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

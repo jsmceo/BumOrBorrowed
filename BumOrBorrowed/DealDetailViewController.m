@@ -31,9 +31,10 @@
     
     __weak IBOutlet UIButton *returnItemButton;
     
-    __weak IBOutlet UIImageView *itemImageView;
+    __weak IBOutlet PFImageView *itemImageView;
     
-
+    UIImage *itemImage;
+    PFObject *object;
 }
 
 @end
@@ -67,24 +68,15 @@
     [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateNormal];
     [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateSelected];
     returnItemButton.titleLabel.textColor = [UIColor blackColor];
-
-    //itemImageView.image. = [UIImage imageNa]
     
-    //[_deal objectForKey:@"itemimage"];
-    //not sure how exactly to pull the file/data from parse to put here. cant do objectforkey here...sent file/data to parse not the image, so thats why i need file/data back here to be the image.
-   
     
-        }
     
-
     
-
-
-
-
-
-
-
+    
+    
+    itemImageView.file = [_deal objectForKey:@"itemimage"];
+    [itemImageView loadInBackground];
+}
 
 
 @end

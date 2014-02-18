@@ -48,6 +48,7 @@
         //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
         
         [logInViewController setDelegate:self];
+
         [logInViewController
          
          setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships",@"email",@"read_insights",@"create_event",@"manage_notifications",@"user_location",@"publish_actions"]];
@@ -81,28 +82,19 @@
         logInViewController.signUpController.signUpView.logo = label;
         label.textColor = [UIColor greenColor];
 
-        
         [self presentViewController:logInViewController animated:YES completion:NULL];
-        
-        
-        
-        
-        [self performSegueWithIdentifier:@"SignInSegue" sender:self];
-        
     }
 }
 
-
--(PFQuery *)queryForTable
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Deal"];
-    
-    [query orderByDescending:@"returndate"];
-    
-    return query;
-    
-    //not working as we'd like. still seems random but onto the right idea.
-}
+//-(PFQuery *)queryForTable
+//{
+//    PFQuery *query = [PFQuery queryWithClassName:@"Deal"];
+//    
+//    [query orderByDescending:@"returndate"];
+//    
+//    return query;
+//    //not working as we'd like. still seems random but onto the right idea.
+//}
 
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
@@ -119,18 +111,12 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[ segue identifier] isEqualToString:@"dealSegue"])
+    if ([segue.identifier isEqualToString:@"dealSegue"])
     {
         NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
         deal = [self objectAtIndexPath:indexPath];
-        
-        DealDetailViewController * vc = segue.destinationViewController;
-        vc.deal = deal;
     }
 }
-
-
-
 
 -(PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
@@ -184,7 +170,10 @@
     deal [@"isdealdone"] = @YES;
     [deal saveInBackground];
     
-    
+
+}
+-(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
+{
 }
 
 
