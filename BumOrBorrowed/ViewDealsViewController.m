@@ -86,7 +86,6 @@
 //    [query orderByDescending:@"returndate"];
 //    
 //    return query;
-//    
 //    //not working as we'd like. still seems random but onto the right idea.
 //}
 
