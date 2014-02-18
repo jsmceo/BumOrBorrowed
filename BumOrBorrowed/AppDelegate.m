@@ -15,8 +15,20 @@
 {
     [Parse setApplicationId:@"eWkosnjjEEG4QytJl2UkQeYbu0c3m4wlIC2e56kF"
                   clientKey:@"Q6N6t10shZtWz7i31cFiB1zN4Z6xwfyG2SIHbyTB"];
+    
+    [PFFacebookUtils initializeFacebook];
     return YES;
     
+}
+
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation
+{
+    return [FBAppCall handleOpenURL:url
+                  sourceApplication:sourceApplication
+                        withSession:[PFFacebookUtils session]];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -38,7 +50,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [FBAppCall handleDidBecomeActiveWithSession:[PFFacebookUtils session]];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

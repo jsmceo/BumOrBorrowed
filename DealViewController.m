@@ -8,6 +8,8 @@
 
 #import "DealViewController.h"
 #import "Parse/Parse.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface DealViewController () <UIImagePickerControllerDelegate>
 {
@@ -20,10 +22,13 @@
     
     PFObject *deal;
     
-    
     UIImage *itemImage;
     __weak IBOutlet UIImageView *myItemImageView;
+    PFObject *imageData;
+    PFObject *activityIndicator;
+
 }
+
 
 @end
 
@@ -67,14 +72,68 @@
     deal [@"isdealdone"] = @NO;
     
      NSData *data = UIImageJPEGRepresentation(itemImage, 0.9);
-    
+
     deal [@"itemimage"] = [PFFile fileWithData:data];
+
+
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
+        
+        [logInViewController setDelegate:self];
+        [logInViewController setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships"]];
+        
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        //| PFLogInFieldsPasswordForgotten
+        | PFLogInFieldsDismissButton
+        | PFLogInFieldsFacebook;
+        
+        
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+
+        
+        //[self performSegueWithIdentifier:@"SignInSegue" sender:self];
+    }
+    
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([sender isKindOfClass:[UIButton class]])
+        return;
+    
+    PFLogInViewController *login = segue.destinationViewController;
+    login.delegate = self;
+    login.signUpController.delegate = self;
+    
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+    label.text = @"iBorrow Login";
+    [label sizeToFit];
+    login.logInView.logo = label;
+    label.textColor = [UIColor greenColor];
+    //label.te =
     
     
 
     [deal saveInBackground];
 }
 
+
+ - (void)logoutButtonTouchHandler:(id)sender  {
+     [PFUser logOut]; // Log out
+     
+     // Return to login page
+     [self.navigationController popToRootViewControllerAnimated:YES];
+ }
+
+
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
+{
+	
+}
 
 
 - (IBAction)chooseItemImagePressed:(id)sender
@@ -85,7 +144,13 @@
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
       [self presentViewController:imagePicker animated:YES completion:NULL];
-    
+}
+
+
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+{
+    [logInController dismissViewControllerAnimated:YES completion:nil];
     
 }
 
