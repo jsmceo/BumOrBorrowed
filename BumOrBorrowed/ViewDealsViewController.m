@@ -44,14 +44,54 @@
     
     
     if (![PFUser currentUser]) {
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
+        
+        [logInViewController setDelegate:self];
+        [logInViewController
+         
+         setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships",@"email",@"read_insights",@"create_event",@"manage_notifications",@"user_location",@"publish_actions"]];
+        
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        | PFLogInFieldsPasswordForgotten
+        | PFLogInFieldsDismissButton
+        | PFLogInFieldsFacebook;
+        
+        
+        
+//        if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
+//            [PFFacebookUtils linkUser:[PFUser currentUser] permissions:nil block:^(BOOL succeeded, NSError *error)
+//             }
+//             
+//                 
+//             }
+        
+       
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+        label.text = @"BorrowHero Login";
+        [label sizeToFit];
+        logInViewController.logInView.logo = label;
+        label.textColor = [UIColor greenColor];
+        label = [[UILabel alloc]initWithFrame:CGRectZero];
+        label.text = @"BorrowHero Sign Up";
+        [label sizeToFit];
+        logInViewController.signUpController.signUpView.logo = label;
+        label.textColor = [UIColor greenColor];
 
+        
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+        
+        
         
         
         [self performSegueWithIdentifier:@"SignInSegue" sender:self];
         
     }
-    
 }
+
 
 -(PFQuery *)queryForTable
 {
@@ -79,35 +119,18 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-    
     if ([[ segue identifier] isEqualToString:@"dealSegue"])
     {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
         deal = [self objectAtIndexPath:indexPath];
         
-        
-        DealDetailViewController *vc = segue.destinationViewController;
+        DealDetailViewController * vc = segue.destinationViewController;
         vc.deal = deal;
-        
-    }
-    else if ([[ segue identifier] isEqualToString:@"SignInSegue"])
-    {
-        PFLogInViewController *loginViewController = segue.destinationViewController;
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
-                label.text = @"BorrowHero Login";
-                [label sizeToFit];
-                loginViewController.logInView.logo = label;
-              label.textColor = [UIColor greenColor];
-        label = [[UILabel alloc]initWithFrame:CGRectZero];
-               label.text = @"BorrowHero Sign Up";
-                [label sizeToFit];
-                loginViewController.signUpController.signUpView.logo = label;
-                label.textColor = [UIColor greenColor];
-        
     }
 }
-  
+
+
+
 
 -(PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
@@ -165,4 +188,6 @@
 }
 
 
+
 @end
+

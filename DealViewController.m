@@ -11,7 +11,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 
-@interface DealViewController () <UIImagePickerControllerDelegate>
+@interface DealViewController () <UIImagePickerControllerDelegate,PFSignUpViewControllerDelegate,PFLogInViewControllerDelegate>
 {
     __weak IBOutlet UITextField *lendorTextField;
     __weak IBOutlet UITextField *borrowerTextField;
@@ -75,27 +75,10 @@
 
     deal [@"itemimage"] = [PFFile fileWithData:data];
 
+    [deal saveInBackground];
 
-    if (![PFUser currentUser]) {
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
-        
-        [logInViewController setDelegate:self];
-        [logInViewController setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships"]];
-        
-        logInViewController.fields = PFLogInFieldsUsernameAndPassword
-        | PFLogInFieldsLogInButton
-        | PFLogInFieldsSignUpButton
-        //| PFLogInFieldsPasswordForgotten
-        | PFLogInFieldsDismissButton
-        | PFLogInFieldsFacebook;
-        
-        
-        [self presentViewController:logInViewController animated:YES completion:NULL];
-
-        
         //[self performSegueWithIdentifier:@"SignInSegue" sender:self];
-    }
+    
     
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -117,7 +100,7 @@
     
     
 
-    [deal saveInBackground];
+    
 }
 
 
