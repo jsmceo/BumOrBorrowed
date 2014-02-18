@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AddressBookUI/AddressBookUI.h>
 
-@interface DealViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@interface DealViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate>
+
+
+@property (weak, nonatomic) IBOutlet UITextField *BorrowerTextFieldProperty;
 
 @property(strong, nonatomic)UIImagePickerController *imagePicker;
+
+- (IBAction)contactsButton:(id)sender;
+
 
 
 @end

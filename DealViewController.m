@@ -9,6 +9,8 @@
 #import "DealViewController.h"
 #import "Parse/Parse.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <AddressBookUI/AddressBookUI.h>
+
 
 
 @interface DealViewController () <UIImagePickerControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
@@ -26,7 +28,6 @@
     __weak IBOutlet UIImageView *myItemImageView;
     PFObject *imageData;
     PFObject *activityIndicator;
-
 }
 
 
@@ -43,7 +44,7 @@
 
     [super viewDidLoad];
     
-
+ 
 }
 
 
@@ -71,9 +72,15 @@
     deal [@"description"] = descriptionTextView.text;
     deal [@"isdealdone"] = @NO;
     
+    
+    
+    
+    
      NSData *data = UIImageJPEGRepresentation(itemImage, 0.9);
-
-    deal [@"itemimage"] = [PFFile fileWithData:data];
+    
+    if (data.length) {
+        deal [@"itemimage"] = [PFFile fileWithData:data];
+    }
 
 
     [deal saveInBackground];
@@ -81,7 +88,61 @@
     
         //[self performSegueWithIdentifier:@"SignInSegue" sender:self];
     }
+- (IBAction)contactsButton:(id)sender
+{
+    ABPeoplePickerNavigationController *picker =
+    [[ABPeoplePickerNavigationController alloc] init];
+    picker.peoplePickerDelegate = self;
     
+    [self presentViewController:picker animated:YES completion:nil];
+
+}
+- (void)peoplePickerNavigationControllerDidCancel:
+(ABPeoplePickerNavigationController *)peoplePicker
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person {
+    
+    [self displayPerson:person];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    return NO;
+}
+- (BOOL)peoplePickerNavigationController:
+(ABPeoplePickerNavigationController *)peoplePicker
+      shouldContinueAfterSelectingPerson:(ABRecordRef)person
+                                property:(ABPropertyID)property
+                              identifier:(ABMultiValueIdentifier)identifier
+{
+    return NO;
+}
+- (void)displayPerson:(ABRecordRef)person
+{
+    NSString* name = (__bridge_transfer NSString*)ABRecordCopyValue(person,
+                                                                    kABPersonFirstNameProperty);
+    NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    
+    self.BorrowerTextFieldProperty.text = [NSString stringWithFormat:@"%@ %@", name, lastName];
+    
+    NSString* phone = nil;
+    ABMultiValueRef phoneNumbers = ABRecordCopyValue(person,
+                                                     kABPersonPhoneProperty);
+    if (ABMultiValueGetCount(phoneNumbers) > 0) {
+        phone = (__bridge_transfer NSString*)
+        ABMultiValueCopyValueAtIndex(phoneNumbers, 0);
+        
+    } else {
+        phone = @"[None]";
+    }
+  
+   // self.phoneNumber.text = phone;
+    CFRelease(phoneNumbers);
+}
+
+
 
 
 

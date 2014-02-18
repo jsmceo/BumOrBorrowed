@@ -112,8 +112,8 @@
         
         DealDetailViewController *vc = segue.destinationViewController;
         vc.deal = deal;
-    }
-}
+    
+    }}
 
 
 
@@ -169,7 +169,10 @@
     deal [@"isdealdone"] = @YES;
     [deal saveInBackground];
     
-    
+
+}
+-(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
+{
 }
 
 
