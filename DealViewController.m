@@ -8,6 +8,8 @@
 
 #import "DealViewController.h"
 #import "Parse/Parse.h"
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface DealViewController () <PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 {
@@ -19,7 +21,12 @@
     __weak IBOutlet UISegmentedControl *segmentedControl;
     
     PFObject *deal;
+    PFObject *imageData;
+    PFObject *activityIndicator;
+
+
 }
+
 
 @end
 
@@ -70,9 +77,20 @@
         //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
         
         [logInViewController setDelegate:self];
+        [logInViewController setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships"]];
+        
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        //| PFLogInFieldsPasswordForgotten
+        | PFLogInFieldsDismissButton
+        | PFLogInFieldsFacebook;
+        
+        
+        [self presentViewController:logInViewController animated:YES completion:NULL];
 
         
-        [self performSegueWithIdentifier:@"SignInSegue" sender:self];
+        //[self performSegueWithIdentifier:@"SignInSegue" sender:self];
     }
     
 }
@@ -101,12 +119,25 @@
     label.textColor = [UIColor greenColor];
 }
 
+ 
+
+ - (void)logoutButtonTouchHandler:(id)sender  {
+     [PFUser logOut]; // Log out
+     
+     // Return to login page
+     [self.navigationController popToRootViewControllerAnimated:YES];
+ }
+
+
+
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
     
     [signUpController dismissViewControllerAnimated:YES completion:nil];
     
 }
+
+
 
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
