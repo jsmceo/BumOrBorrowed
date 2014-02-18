@@ -32,6 +32,7 @@
     __weak IBOutlet UIButton *returnItemButton;
     
     __weak IBOutlet PFImageView *itemImageView;
+    __weak IBOutlet UITextField *borrowerNumberField;
     
     UIImage *itemImage;
     PFObject *object;
@@ -69,7 +70,7 @@
     [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateSelected];
     returnItemButton.titleLabel.textColor = [UIColor blackColor];
     
-    
+    borrowerNumberField.text = [_deal objectForKey:@"borrowernumber"];
     
     
     

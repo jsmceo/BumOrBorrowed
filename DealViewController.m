@@ -21,6 +21,7 @@
     __weak IBOutlet UITextView *descriptionTextView;
     __weak IBOutlet UIDatePicker *datePicker;
     __weak IBOutlet UISegmentedControl *segmentedControl;
+    __weak IBOutlet UITextField *borrowerNumberField;
     
     PFObject *deal;
     
@@ -28,6 +29,7 @@
     __weak IBOutlet UIImageView *myItemImageView;
     PFObject *imageData;
     PFObject *activityIndicator;
+    PFObject *userPhoneNumber;
 }
 @end
 
@@ -71,8 +73,8 @@
     deal [@"item"] = itemTextField.text;
     deal [@"description"] = descriptionTextView.text;
     deal [@"isdealdone"] = @NO;
-    
-    
+    deal [@"borrowernumber"] = borrowerNumberField.text;
+
     
     
     
@@ -138,8 +140,7 @@
     } else {
         phone = @"[None]";
     }
-  
-   // self.phoneNumber.text = phone;
+    self.phoneNumberFieldProperty.text = phone;
     CFRelease(phoneNumbers);
 }
 

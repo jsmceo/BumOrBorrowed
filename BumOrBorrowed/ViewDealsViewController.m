@@ -115,6 +115,9 @@
     {
         NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
         deal = [self objectAtIndexPath:indexPath];
+        
+        DealDetailViewController *vc = segue.destinationViewController;
+        vc.deal = deal;
     }
 }
 

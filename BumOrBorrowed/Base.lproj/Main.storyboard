@@ -105,7 +105,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaI-5A-bSm">
-                                <rect key="frame" x="278" y="154" width="22" height="22"/>
+                                <rect key="frame" x="278" y="167" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" red="0.1602581344" green="0.900390625" blue="0.098179629520000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -152,18 +152,32 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <action selector="contactsButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="J8M-bF-TQT"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="g2Y-Iq-0Df">
+                                <rect key="frame" x="150" y="129" width="150" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ph#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nv-mm-jH6">
+                                <rect key="frame" x="117" y="133" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000596046448" green="0.40000000596046448" blue="0.40000000596046448" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Enter A Deal" id="KXx-TI-CeH"/>
                     <connections>
                         <outlet property="BorrowerTextFieldProperty" destination="nob-1J-WmN" id="GhK-bV-4BH"/>
+                        <outlet property="borrowerNumberField" destination="g2Y-Iq-0Df" id="lzz-0V-Axz"/>
                         <outlet property="borrowerTextField" destination="nob-1J-WmN" id="hiH-H7-PRY"/>
                         <outlet property="datePicker" destination="j3G-yS-Blt" id="rfN-aZ-qAe"/>
                         <outlet property="descriptionTextView" destination="dpH-QL-DPK" id="j3V-wn-oM8"/>
                         <outlet property="itemTextField" destination="c1x-2e-aLf" id="gVd-id-wyQ"/>
                         <outlet property="lendorTextField" destination="Rs3-mw-EEi" id="aMf-mT-7vB"/>
                         <outlet property="myItemImageView" destination="6Kw-Mf-UMy" id="SRu-Kh-ecQ"/>
+                        <outlet property="phoneNumberFieldProperty" destination="g2Y-Iq-0Df" id="ldC-Gc-nzK"/>
                         <outlet property="segmentedControl" destination="gW5-XC-kP5" id="4nb-wD-WXA"/>
                     </connections>
                 </viewController>
@@ -356,12 +370,25 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <rect key="frame" x="179" y="135" width="119" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6em-VP-JxT">
+                                <rect key="frame" x="39" y="129" width="131" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ph#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6e-nf-CKi">
+                                <rect key="frame" x="5" y="135" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Deal Detail" id="doA-nv-mku"/>
                     <connections>
                         <outlet property="borrowerDealDetailViewTextField" destination="aII-em-mp4" id="TKz-N4-0Ht"/>
+                        <outlet property="borrowerNumberField" destination="6em-VP-JxT" id="8WQ-eO-9Re"/>
                         <outlet property="createdDateDealDetailViewTextField" destination="N0a-4c-Lle" id="TgK-Xh-w0E"/>
                         <outlet property="descriptionDealDetailViewTextView" destination="3VI-Ww-19J" id="xce-xG-Dt9"/>
                         <outlet property="endDateDealDetailViewTextField" destination="MEx-sv-Gvt" id="Gfo-RF-cpz"/>
@@ -375,7 +402,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MW-RW-38m" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qKs-4g-sti" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1947" y="-542"/>
+            <point key="canvasLocation" x="2019" y="-556"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Sxr-Fz-3CQ">
