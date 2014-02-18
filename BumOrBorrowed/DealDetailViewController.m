@@ -30,6 +30,10 @@
     __weak IBOutlet UINavigationItem *navBarDealTitle;
     
     __weak IBOutlet UIButton *returnItemButton;
+    
+    __weak IBOutlet UIImageView *itemImageView;
+    
+
 }
 
 @end
@@ -59,17 +63,23 @@
     
   
     
-   returnItemButton.titleLabel.text = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
+   //returnItemButton.titleLabel.text = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
+    [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateNormal];
+    [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateSelected];
+    returnItemButton.titleLabel.textColor = [UIColor blackColor];
+
+    //itemImageView.image. = [UIImage imageNa]
+    
+    //[_deal objectForKey:@"itemimage"];
+    //not sure how exactly to pull the file/data from parse to put here. cant do objectforkey here...sent file/data to parse not the image, so thats why i need file/data back here to be the image.
    
-   // [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateSelected];
-
+    
+        }
     
 
     
-    
-    
-    
-}
+
+
 
 
 

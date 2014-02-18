@@ -9,7 +9,7 @@
 #import "DealViewController.h"
 #import "Parse/Parse.h"
 
-@interface DealViewController () <PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
+@interface DealViewController () <UIImagePickerControllerDelegate>
 {
     __weak IBOutlet UITextField *lendorTextField;
     __weak IBOutlet UITextField *borrowerTextField;
@@ -19,6 +19,10 @@
     __weak IBOutlet UISegmentedControl *segmentedControl;
     
     PFObject *deal;
+    
+    
+    UIImage *itemImage;
+    __weak IBOutlet UIImageView *myItemImageView;
 }
 
 @end
@@ -37,10 +41,18 @@
     
 
 }
-- (IBAction)itemImagePicker:(id)sender
+
+
+-(void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-   
+    
+    itemImage= [info valueForKey:UIImagePickerControllerOriginalImage];
+    myItemImageView.image = itemImage;
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
+    
 }
+
 
 - (IBAction)onSaveButtonPressed:(id)sender
 {
@@ -53,64 +65,27 @@
     deal [@"item"] = itemTextField.text;
     deal [@"description"] = descriptionTextView.text;
     deal [@"isdealdone"] = @NO;
+    
+     NSData *data = UIImageJPEGRepresentation(itemImage, 0.9);
+    
+    deal [@"itemimage"] = [PFFile fileWithData:data];
+    
+    
 
     [deal saveInBackground];
 }
 
 
 
--(void)viewDidAppear:(BOOL)animated
+- (IBAction)chooseItemImagePressed:(id)sender
 {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
-    [super viewDidAppear:animated];
+      [self presentViewController:imagePicker animated:YES completion:NULL];
     
-
-    if (![PFUser currentUser]) {
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
-        
-        [logInViewController setDelegate:self];
-
-        
-        [self performSegueWithIdentifier:@"SignInSegue" sender:self];
-    }
-    
-}
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([sender isKindOfClass:[UIButton class]])
-        return;
-    
-    PFLogInViewController *login = segue.destinationViewController;
-    login.delegate = self;
-    login.signUpController.delegate = self;
-    
-    
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
-    label.text = @"iBorrow Login";
-    [label sizeToFit];
-    login.logInView.logo = label;
-    label.textColor = [UIColor greenColor];
-    //label.te =
-    
-    
-    label = [[UILabel alloc]initWithFrame:CGRectZero];
-    label.text = @"iBorrow Sign Up";
-    [label sizeToFit];
-    login.signUpController.signUpView.logo = label;
-    label.textColor = [UIColor greenColor];
-}
-
--(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
-{
-    
-    [signUpController dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
--(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
-{
-    [logInController dismissViewControllerAnimated:YES completion:nil];
     
 }
 

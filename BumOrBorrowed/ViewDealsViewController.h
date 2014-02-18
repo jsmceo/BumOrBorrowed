@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 
-@interface ViewDealsViewController : PFQueryTableViewController
+@interface ViewDealsViewController : PFQueryTableViewController <UINavigationControllerDelegate>
 //-(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender;
 @end
