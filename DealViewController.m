@@ -13,6 +13,7 @@
 
 
 
+
 @interface DealViewController () <UIImagePickerControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 {
     __weak IBOutlet UITextField *lendorTextField;
@@ -74,7 +75,7 @@
     deal [@"description"] = descriptionTextView.text;
     deal [@"isdealdone"] = @NO;
     deal [@"borrowernumber"] = borrowerNumberField.text;
-
+    deal [@"user"] = [PFUser currentUser];
     
     
     
@@ -143,6 +144,13 @@
     self.phoneNumberFieldProperty.text = phone;
     CFRelease(phoneNumbers);
 }
+
+//- (IBAction)facebookPickerButton:(id)sender
+//{
+//    FBFriendPickerViewController *fbpicker = [[FBFriendPickerViewController alloc]init];
+//    //fbpicker
+//}
+
 
 
 

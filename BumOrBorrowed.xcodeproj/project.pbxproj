@@ -41,6 +41,8 @@
 		F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F54EE85C18B3EBA3009821FA /* free-camera-icon.png */; };
 		F54EE86018B3FAE7009821FA /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85E18B3FAE7009821FA /* AddressBook.framework */; };
 		F54EE86118B3FAE7009821FA /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */; };
+		F5BB661918B514CB00462F36 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661818B514CB00462F36 /* facebook.png */; };
+		F5BB661B18B515A400462F36 /* facebook f blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661A18B515A400462F36 /* facebook f blue.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		F54EE85C18B3EBA3009821FA /* free-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "free-camera-icon.png"; sourceTree = "<group>"; };
 		F54EE85E18B3FAE7009821FA /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		F5BB661818B514CB00462F36 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		F5BB661A18B515A400462F36 /* facebook f blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook f blue.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +208,8 @@
 				054ACF3718AAE1F800AAF46F /* DealDetailViewController.m */,
 				054ACF0318A952EB00AAF46F /* Images.xcassets */,
 				F54EE85C18B3EBA3009821FA /* free-camera-icon.png */,
+				F5BB661A18B515A400462F36 /* facebook f blue.png */,
+				F5BB661818B514CB00462F36 /* facebook.png */,
 				054ACEF218A952EB00AAF46F /* Supporting Files */,
 			);
 			path = BumOrBorrowed;
@@ -287,6 +293,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Big Red INC";
 				TargetAttributes = {
+					054ACEE718A952EB00AAF46F = {
+						DevelopmentTeam = 25LG3Z5469;
+					};
 					054ACF0818A952EB00AAF46F = {
 						TestTargetID = 054ACEE718A952EB00AAF46F;
 					};
@@ -318,7 +327,9 @@
 			files = (
 				054ACF3518AAD26400AAF46F /* Main.storyboard in Resources */,
 				F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */,
+				F5BB661918B514CB00462F36 /* facebook.png in Resources */,
 				054ACF0418A952EB00AAF46F /* Images.xcassets in Resources */,
+				F5BB661B18B515A400462F36 /* facebook f blue.png in Resources */,
 				054ACEF618A952EB00AAF46F /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,12 +515,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BumOrBorrowed/BumOrBorrowed-Prefix.pch";
 				INFOPLIST_FILE = "BumOrBorrowed/BumOrBorrowed-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -520,12 +534,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BumOrBorrowed/BumOrBorrowed-Prefix.pch";
 				INFOPLIST_FILE = "BumOrBorrowed/BumOrBorrowed-Info.plist";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

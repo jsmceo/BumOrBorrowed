@@ -30,6 +30,8 @@
     deal = [PFObject objectWithClassName:@"Deal"];
 
     self.parseClassName = @"Deal";
+    self.paginationEnabled = YES;
+    self.objectsPerPage = 7;
  
     [super viewDidLoad];
     
@@ -86,16 +88,22 @@
     }
 }
 
-//-(PFQuery *)queryForTable
-//{
-//    PFQuery *query = [PFQuery queryWithClassName:@"Deal"];
-//    
-//    [query orderByDescending:@"returndate"];
-//    
-//    return query;
-//    //not working as we'd like. still seems random but onto the right idea.
-//}
-
+-(PFQuery *)queryForTable
+{
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    
+    if (![PFUser currentUser]) {
+        return nil;
+    }else{
+    
+    [query orderByDescending:@"enddate"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
+    
+    
+    return query;
+    //not working as we'd like. still seems random but onto the right idea.
+        }
+}
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
     
@@ -106,7 +114,7 @@
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
     [logInController dismissViewControllerAnimated:YES completion:nil];
-    
+    [self loadObjects];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -123,6 +131,7 @@
 
 -(PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
+    
     PFTableViewCell *dealCell = [tableView dequeueReusableCellWithIdentifier:@"reuseID"];
     if (!dealCell) {
         dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID"];
@@ -130,6 +139,7 @@
     dealCell.textLabel.text = [object objectForKey:@"dealtitle"];
     dealCell.detailTextLabel.text = [[object objectForKey:@"enddate"] description];
   //  dealCell.detailTextLabel.text = [[[object objectForKey:@"enddate"] dateStyle = NSDateFormatterMediumStyle] ];
+    
     
 
     
@@ -157,9 +167,11 @@
 }
 
 
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"test");
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 
@@ -178,6 +190,7 @@
 -(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
 {
 }
+
 
 
 
