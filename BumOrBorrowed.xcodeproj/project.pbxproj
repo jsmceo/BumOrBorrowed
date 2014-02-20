@@ -43,6 +43,8 @@
 		F54EE86118B3FAE7009821FA /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */; };
 		F5BB661918B514CB00462F36 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661818B514CB00462F36 /* facebook.png */; };
 		F5BB661B18B515A400462F36 /* facebook f blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661A18B515A400462F36 /* facebook f blue.png */; };
+		F5BB661F18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661E18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png */; };
+		F5BB662218B6732100462F36 /* ViewByItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BB662118B6732100462F36 /* ViewByItemsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,9 @@
 		F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		F5BB661818B514CB00462F36 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		F5BB661A18B515A400462F36 /* facebook f blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook f blue.png"; sourceTree = "<group>"; };
+		F5BB661E18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_f_blue_color_match_attempt.png; sourceTree = "<group>"; };
+		F5BB662018B6732100462F36 /* ViewByItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewByItemsViewController.h; sourceTree = "<group>"; };
+		F5BB662118B6732100462F36 /* ViewByItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewByItemsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,12 +209,15 @@
 				054ACF0018A952EB00AAF46F /* ViewController.h */,
 				054ACF0118A952EB00AAF46F /* ViewController.m */,
 				054ACF3318AAD26400AAF46F /* Main.storyboard */,
+				F5BB662018B6732100462F36 /* ViewByItemsViewController.h */,
+				F5BB662118B6732100462F36 /* ViewByItemsViewController.m */,
 				054ACF3618AAE1F800AAF46F /* DealDetailViewController.h */,
 				054ACF3718AAE1F800AAF46F /* DealDetailViewController.m */,
 				054ACF0318A952EB00AAF46F /* Images.xcassets */,
 				F54EE85C18B3EBA3009821FA /* free-camera-icon.png */,
 				F5BB661A18B515A400462F36 /* facebook f blue.png */,
 				F5BB661818B514CB00462F36 /* facebook.png */,
+				F5BB661E18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png */,
 				054ACEF218A952EB00AAF46F /* Supporting Files */,
 			);
 			path = BumOrBorrowed;
@@ -331,6 +339,7 @@
 				054ACF0418A952EB00AAF46F /* Images.xcassets in Resources */,
 				F5BB661B18B515A400462F36 /* facebook f blue.png in Resources */,
 				054ACEF618A952EB00AAF46F /* InfoPlist.strings in Resources */,
+				F5BB661F18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +394,7 @@
 				054ACF3218AA98FC00AAF46F /* ViewDealsViewController.m in Sources */,
 				054ACF3818AAE1F800AAF46F /* DealDetailViewController.m in Sources */,
 				054ACF2F18AA8A8700AAF46F /* DealViewController.m in Sources */,
+				F5BB662218B6732100462F36 /* ViewByItemsViewController.m in Sources */,
 				054ACF0218A952EB00AAF46F /* ViewController.m in Sources */,
 				054ACEFC18A952EB00AAF46F /* AppDelegate.m in Sources */,
 				054ACEF818A952EB00AAF46F /* main.m in Sources */,

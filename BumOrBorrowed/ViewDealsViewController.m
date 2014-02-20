@@ -36,6 +36,7 @@
     [super viewDidLoad];
     
     
+    
 
 }
 
@@ -95,7 +96,7 @@
         return nil;
     }else{
         
-    [query orderByDescending:@"enddate"];
+    [query orderByAscending:@"enddate"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
 
         
@@ -134,20 +135,35 @@
     if (!dealCell) {
         dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID"];
     }
+    
     dealCell.textLabel.text = [object objectForKey:@"dealtitle"];
     
     NSDate *date = [object objectForKey:@"enddate"];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormat setDateStyle:NSDateFormatterShortStyle];
     NSString *dateString = [dateFormat stringFromDate:date];
-    dealCell.detailTextLabel.text = dateString;
+    NSDate *date2 = [object objectForKey:@"startdate"];
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
+    [dateFormat2 setDateStyle:NSDateFormatterShortStyle];
+    NSString *dateString2 = [dateFormat stringFromDate:date2];
     
+    if (dateString == NULL) {
+        dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Start Date: %@", dateString2];
+    }else{
+    
+    
+    dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Start Date: %@ - End Date %@", dateString2, dateString];
+    
+    }
     if ([[object objectForKey:@"isdealdone"] boolValue] ) {
         NSLog(@"%@", deal);
         //deal [[dealCell.textLabel.textColor] = [UIColor redColor]];
         dealCell.textLabel.textColor = [UIColor redColor];
         dealCell.detailTextLabel.textColor = [UIColor redColor];
         dealCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
+        
+
     }
     
     else{
@@ -177,14 +193,16 @@
     PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
     [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
     
-    
-    deal [@"isdealdone"] = @YES;
+    deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
+                           
+                           deal [@"isdealdone"] = @YES;
     [deal saveInBackground];
     
-
+//this bit saves the deal and make it say lent instead of lend, but only upon the button being pushed. If you open app and button was pushed from prior session it wont come up as lent, still lends instead. bit above under the bool doesnt do it either.
 }
 -(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
 {
+    
 }
 
 

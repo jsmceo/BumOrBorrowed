@@ -77,7 +77,13 @@
     deal [@"isdealdone"] = @NO;
     deal [@"borrowernumber"] = borrowerNumberField.text;
     deal [@"user"] = [PFUser currentUser];
+    //need if statement here for if the borrower is NOT a facebook user. cant save nil FBID it breaks
+    //need to check if saving fbid as empty string is right way... might just want to learn how to leave it empty
+    if ( FBID == nil) {
+        deal [@"FBID"] = @"";
+    }else{
     deal [@"FBID"] = FBID;
+    }
     
     NSData *data = UIImageJPEGRepresentation(itemImage, 0.9);
     
