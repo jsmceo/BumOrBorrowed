@@ -18,7 +18,6 @@
 
 @property(strong, nonatomic)UIImagePickerController *imagePicker;
 
-- (IBAction)contactsButton:(id)sender;
 
 
 
