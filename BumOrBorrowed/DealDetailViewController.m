@@ -55,9 +55,20 @@
     borrowerDealDetailViewTextField.text = [_deal objectForKey:@"borrower"];
     itemDealDetailViewTextField.text = [_deal objectForKey:@"item"];
     
-    createdDateDealDetailViewTextField.text = [[_deal objectForKey:@"startdate"] description];
+    NSDate *date = [_deal objectForKey:@"startdate"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString = [dateFormat stringFromDate:date];
+   // NSLog(@"Date: %@", dateString);
+    createdDateDealDetailViewTextField.text = dateString;
     
-    endDateDealDetailViewTextField.text = [[_deal objectForKey:@"enddate"] description];
+    NSDate *date1 = [_deal objectForKey:@"enddate"];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString1 = [dateFormat stringFromDate:date1];
+    //NSLog(@"Date: %@", dateString1);
+    endDateDealDetailViewTextField.text = dateString1;
+    
                                            
     descriptionDealDetailViewTextView.text = [_deal objectForKey:@"description"];
     

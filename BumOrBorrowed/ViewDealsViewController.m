@@ -30,6 +30,8 @@
     deal = [PFObject objectWithClassName:@"Deal"];
 
     self.parseClassName = @"Deal";
+    self.paginationEnabled = YES;
+    self.objectsPerPage = 7;
  
     [super viewDidLoad];
     
@@ -85,17 +87,22 @@
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
 }
+-(PFQuery *)queryForTable
+{
+    PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
+    
+    if (![PFUser currentUser]) {
+        return nil;
+    }else{
+        
+    [query orderByDescending:@"returndate"];
+    [query whereKey:@"user" equalTo:[PFUser currentUser]];
 
-//-(PFQuery *)queryForTable
-//{
-//    PFQuery *query = [PFQuery queryWithClassName:@"Deal"];
-//    
-//    [query orderByDescending:@"returndate"];
-//    
-//    return query;
-//    //not working as we'd like. still seems random but onto the right idea.
-//}
-
+        
+    return query;
+    //not working as we'd like. still seems random but onto the right idea.
+        } 
+}
 -(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
 {
     
@@ -128,10 +135,12 @@
         dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID"];
     }
     dealCell.textLabel.text = [object objectForKey:@"dealtitle"];
-    dealCell.detailTextLabel.text = [[object objectForKey:@"enddate"] description];
-  //  dealCell.detailTextLabel.text = [[[object objectForKey:@"enddate"] dateStyle = NSDateFormatterMediumStyle] ];
     
-
+    NSDate *date = [object objectForKey:@"enddate"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    dealCell.detailTextLabel.text = dateString;
     
     if ([[object objectForKey:@"isdealdone"] boolValue] ) {
         NSLog(@"%@", deal);
@@ -139,8 +148,6 @@
         dealCell.textLabel.textColor = [UIColor redColor];
         dealCell.detailTextLabel.textColor = [UIColor redColor];
         dealCell.accessoryType = UITableViewCellAccessoryCheckmark;
-
-    
     }
     
     else{
