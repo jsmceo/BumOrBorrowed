@@ -9,6 +9,7 @@
 #import "DealDetailViewController.h"
 #import "Parse/Parse.h"
 #import "ViewDealsViewController.h"
+#import "ViewByItemsViewController.h"
 
 
 @interface DealDetailViewController ()

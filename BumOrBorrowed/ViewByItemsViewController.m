@@ -65,23 +65,22 @@
 }
 
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-//{
-//    if ([segue.identifier isEqualToString:@"dealSegue"])
-//    {
-//        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
-//        deal = [self objectAtIndexPath:indexPath];
-//        
-//        ViewByItemsViewController  *vc = segue.destinationViewController;
-//        vc.deal = deal;
-//    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"dealSegue2"])
+    {
+        NSIndexPath * indexPath = [self.tableView indexPathForSelectedRow];
+        deal = [self objectAtIndexPath:indexPath];
+        DealDetailViewController  *vc = segue.destinationViewController;
+        vc.deal  = deal;
+    }
+}
 
 -(PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    PFTableViewCell *dealCell = [tableView dequeueReusableCellWithIdentifier:@"reuseID"];
+    PFTableViewCell *dealCell = [tableView dequeueReusableCellWithIdentifier:@"reuseID2"];
     if (!dealCell) {
-        dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID"];
+        dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID2"];
     }
     
     dealCell.textLabel.text = [object objectForKey:@"item"];
@@ -138,18 +137,18 @@
 
 
 
-//-(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender
-//{
-//    PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
-//    [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
-//    
-//    deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
-//    
-//    deal [@"isdealdone"] = @YES;
-//    [deal saveInBackground];
-//    
-//    //this bit saves the deal and make it say lent instead of lend, but only upon the button being pushed. If you open app and button was pushed from prior session it wont come up as lent, still lends instead. bit above under the bool doesnt do it either.
-//}
+-(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender
+{
+    PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
+    [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
+    
+    deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
+    
+    deal [@"isdealdone"] = @YES;
+    [deal saveInBackground];
+    
+    //this bit saves the deal and make it say lent instead of lend, but only upon the button being pushed. If you open app and button was pushed from prior session it wont come up as lent, still lends instead. bit above under the bool doesnt do it either.
+}
 //-(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
 //{
 //    
