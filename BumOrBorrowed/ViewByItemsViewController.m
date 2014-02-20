@@ -84,7 +84,9 @@
         dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID"];
     }
     
-    dealCell.textLabel.text = [object objectForKey:@"dealtitle"];
+    dealCell.textLabel.text = [object objectForKey:@"item"];
+    //dealCell.imageView.image = [object objectForKey:@"itemimage"];
+    //need to look at how to get pffile image back to image. should be done somewhere in project already
     
     NSDate *date = [object objectForKey:@"enddate"];
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
@@ -96,11 +98,11 @@
     NSString *dateString2 = [dateFormat stringFromDate:date2];
     
     if (dateString == NULL) {
-        dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Start Date: %@", dateString2];
+        dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@", [object objectForKey:@"borrower"],  dateString2];
     }else{
         
         
-        dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Start Date: %@ - End Date %@", dateString2, dateString];
+        dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@ - End Date %@", [object objectForKey:@"borrower"], dateString2, dateString];
         
     }
     if ([[object objectForKey:@"isdealdone"] boolValue] ) {
@@ -120,7 +122,7 @@
         dealCell.accessoryType = UITableViewCellAccessoryNone;
     }
     
-    
+   
     
     
     
