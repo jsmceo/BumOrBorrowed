@@ -30,6 +30,9 @@
     PFObject *imageData;
     PFObject *activityIndicator;
     PFObject *userPhoneNumber;
+    
+    FBFriendPickerViewController *facebookPickerController;
+    NSString *FBID;
 }
 @end
 
@@ -42,7 +45,6 @@
     
     deal = [PFObject objectWithClassName:@"Deal"];
     deal[@"startdate"] = [NSDate date];
-    deal[@"enddate"] = [NSDate dateWithTimeInterval:60*60*24*7 sinceDate:deal[@"startdate"]];
 
     [super viewDidLoad];
     
@@ -74,9 +76,8 @@
     deal [@"description"] = descriptionTextView.text;
     deal [@"isdealdone"] = @NO;
     deal [@"borrowernumber"] = borrowerNumberField.text;
-
-    
-    
+    deal [@"user"] = [PFUser currentUser];
+    deal [@"FBID"] = FBID;
     
     NSData *data = UIImageJPEGRepresentation(itemImage, 0.9);
     
@@ -90,7 +91,7 @@
     //[self performSegueWithIdentifier:@"SignInSegue" sender:self];
 }
 
-- (IBAction)contactsButton:(id)sender
+- (IBAction)onContactButtonPressed:(id)sender
 {
     ABPeoplePickerNavigationController *picker =
     [[ABPeoplePickerNavigationController alloc] init];
@@ -144,6 +145,45 @@
     CFRelease(phoneNumbers);
 }
 
+- (IBAction)facebookPickerButton:(id)sender
+{
+    if (!FBSession.activeSession.isOpen) {
+        // if the session is closed, then we open it here, and establish a handler for state changes
+        [FBSession openActiveSessionWithReadPermissions:nil
+                                           allowLoginUI:YES
+                                      completionHandler:^(FBSession *session,
+                                                          FBSessionState state,
+                                                          NSError *error) {
+                                          if (error) {
+                                              UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:error.localizedDescription
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                              [alertView show];
+                                          } else if (session.isOpen) {
+                                              [self facebookPickerButton:(id)sender];
+                                          }
+                                      }];
+        return;
+    }
+    
+    if (facebookPickerController == nil) {
+        // Create friend picker, and get data loaded into it.
+        facebookPickerController = [[FBFriendPickerViewController alloc] init];
+        facebookPickerController.title = @"Pick Friends";
+        facebookPickerController.delegate = self;
+        NSSet *fields = [NSSet setWithObjects:@"installed", nil];
+        facebookPickerController.fieldsForRequest = fields;
+    }
+    
+    [facebookPickerController loadData];
+    [facebookPickerController clearSelection];
+    
+    [self presentViewController:facebookPickerController animated:YES completion:nil];
+
+
+
 
 
 
@@ -168,6 +208,30 @@
 //
 //}
 
+}
+
+-(void)facebookViewControllerDoneWasPressed:(id)sender
+{
+    facebookPickerController.selection;
+    NSLog(@"friend = %@", facebookPickerController.selection);
+    
+    NSString *name;
+      for( id<FBGraphUser> object in facebookPickerController.selection)
+{
+    name = object[@"name"];
+    
+}
+    
+    
+    for (id<FBGraphUser> object in facebookPickerController.selection)
+    {
+        FBID = object[@"id"];
+    }
+    
+    borrowerTextField.text = name;
+
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
  - (void)logoutButtonTouchHandler:(id)sender  {
      [PFUser logOut]; // Log out
@@ -203,10 +267,12 @@
 
 
 - (IBAction)onDatePickerDateChanged:(UIDatePicker *)sender {
-    if (segmentedControl.selectedSegmentIndex == 0) {
+    if (segmentedControl.selectedSegmentIndex == 0)
+    {
         deal[@"startdate"] = datePicker.date;
-        deal[@"enddate"] = [NSDate dateWithTimeInterval:60*60*24*7 sinceDate:datePicker.date];
-    } else {
+    }
+    else if (segmentedControl.selectedSegmentIndex == 1)
+    {
         deal[@"enddate"] = datePicker.date;
     }
 }
@@ -215,8 +281,12 @@
 {
     if (sender.selectedSegmentIndex == 0) {
         datePicker.date = [deal objectForKey:@"startdate"];
-    } else {
-        datePicker.date = [deal objectForKey:@"enddate"];
+    }
+    else if (segmentedControl.selectedSegmentIndex == 1) {
+        if (!deal[@"enddate"]) {
+            deal[@"enddate"] = [NSDate dateWithTimeInterval:7*24*60*60 sinceDate:datePicker.date];
+        }
+        datePicker.date = deal[@"enddate"];
     }
 }
 

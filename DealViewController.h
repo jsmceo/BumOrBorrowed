@@ -10,7 +10,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 
 
-@interface DealViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate>
+@interface DealViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, FBFriendPickerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *BorrowerTextFieldProperty;
@@ -18,7 +18,6 @@
 
 @property(strong, nonatomic)UIImagePickerController *imagePicker;
 
-- (IBAction)contactsButton:(id)sender;
 
 
 

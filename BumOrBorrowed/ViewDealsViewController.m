@@ -95,7 +95,7 @@
         return nil;
     }else{
         
-    [query orderByDescending:@"returndate"];
+    [query orderByDescending:@"enddate"];
     [query whereKey:@"user" equalTo:[PFUser currentUser]];
 
         
@@ -113,7 +113,7 @@
 -(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
 {
     [logInController dismissViewControllerAnimated:YES completion:nil];
-    
+    [self loadObjects];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -167,6 +167,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"test");
+    [super tableView:tableView didSelectRowAtIndexPath:indexPath];
 }
 
 

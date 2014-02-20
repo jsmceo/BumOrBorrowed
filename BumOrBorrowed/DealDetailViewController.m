@@ -36,6 +36,7 @@
     
     UIImage *itemImage;
     PFObject *object;
+    NSString *FBID;
 }
 
 @end
@@ -88,6 +89,8 @@
     
     itemImageView.file = [_deal objectForKey:@"itemimage"];
     [itemImageView loadInBackground];
+    
+    FBID = [_deal objectForKey:@"FBID"];
 }
 
 
