@@ -642,6 +642,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="borrowerNumberField" destination="xEc-0J-EL3" id="LcJ-5I-PSa"/>
                         <outlet property="borrowerTextField" destination="pUZ-3j-fCH" id="o6M-Gc-2aL"/>
                         <outlet property="datePicker" destination="1pl-y5-uZT" id="mOF-1t-9iJ"/>
+                        <outlet property="descriptionTextView" destination="5gA-H2-TRc" id="7Sx-jJ-XOz"/>
                         <outlet property="itemTextField" destination="K6D-KC-E6N" id="6Pi-Yw-OHe"/>
                         <outlet property="lendorTextField" destination="GsF-Bz-JR1" id="Jej-pw-8T7"/>
                         <outlet property="myItemImageView" destination="Xr6-eJ-jxK" id="1NQ-0K-hno"/>
