@@ -25,7 +25,7 @@
 
 - (void)viewDidLoad
 {
-    
+   
     
     deal = [PFObject objectWithClassName:@"Deal"];
 
@@ -52,9 +52,7 @@
         
         [logInViewController setDelegate:self];
 
-        [logInViewController
-         
-         setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships",@"email",@"read_insights",@"create_event",@"manage_notifications",@"user_location",@"publish_actions"]];
+        [logInViewController setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships",@"email",@"read_insights",@"create_event",@"manage_notifications",@"user_location",@"publish_actions"]];
         
         logInViewController.fields = PFLogInFieldsUsernameAndPassword
         | PFLogInFieldsLogInButton
@@ -206,6 +204,13 @@
 }
 
 
+- (IBAction)onLogoutPressed:(id)sender
+{
+    [PFUser logOut];
+    [self.tableView reloadData];
+    [self viewDidAppear:YES];
+    
+}
 
 @end
 
