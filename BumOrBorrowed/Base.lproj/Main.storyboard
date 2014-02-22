@@ -265,7 +265,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZn-ap-SOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="-664"/>
+            <point key="canvasLocation" x="2716" y="-664"/>
         </scene>
         <!--Deal Detail View Controller - Deal Detail-->
         <scene sceneID="7gL-TE-0my">
@@ -464,8 +464,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Deal View Controller - Enter A Deal-->
         <scene sceneID="Bmv-NB-EIN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HiK-Gq-PUp" sceneMemberID="firstResponder"/>
-                <exit id="Tww-B8-c8t" userLabel="Exit" sceneMemberID="exit"/>
                 <viewController id="tnW-6J-b9a" customClass="DealViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zev-Ls-oY5"/>
@@ -552,7 +550,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="tintColor" red="0.1602581344" green="0.900390625" blue="0.098179629520000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="onSaveButtonPressed:" destination="tnW-6J-b9a" eventType="touchUpInside" id="5GU-gs-tVE"/>
-                                    <segue destination="Tww-B8-c8t" kind="unwind" unwindAction="unwindFromComposeDeal:" id="aB1-ub-0Zj"/>
+                                    <segue destination="eKc-vf-CiX" kind="modal" id="VZA-Pd-Fod"/>
                                 </connections>
                             </button>
                             <segmentedControl contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4df-vX-V7C">
@@ -651,8 +649,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <outlet property="segmentedControl" destination="4df-vX-V7C" id="1Mk-h4-aYI"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HiK-Gq-PUp" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2698" y="846"/>
+            <point key="canvasLocation" x="2716" y="846"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="1Wb-j9-Ntg">

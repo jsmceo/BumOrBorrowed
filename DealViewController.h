@@ -10,7 +10,7 @@
 #import <AddressBookUI/AddressBookUI.h>
 
 
-@interface DealViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, FBFriendPickerDelegate>
+@interface DealViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ABPeoplePickerNavigationControllerDelegate, FBFriendPickerDelegate, UITextFieldDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UITextField *BorrowerTextFieldProperty;
