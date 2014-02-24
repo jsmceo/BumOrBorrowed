@@ -47,6 +47,7 @@
 
 
 
+
 - (void)viewDidLoad
 {
     
@@ -103,8 +104,8 @@
     if (![[_deal objectForKey:@"borrowernumber" ] isEqual: @""]) {
         borrowerNumberField.backgroundColor = [UIColor whiteColor];
     }else{
-        borrowerNumberField.alpha = 0;
-        phoneNumberLabel.alpha = 0;
+       // borrowerNumberField.alpha = 0;
+       // phoneNumberLabel.alpha = 0;
         
         //idea here was for that phone number field to not appear(or at least be same color as background and seem to not appear) if no number is coming in. cant quite seem to get it properly, surely there is a better way anyways.
     }
