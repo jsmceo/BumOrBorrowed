@@ -17,11 +17,11 @@
 {
     __weak IBOutlet UITextField *borrowerTextField;
     __weak IBOutlet UITextField *itemTextField;
-    __weak IBOutlet UITextView *descriptionTextView;
     __weak IBOutlet UIDatePicker *datePicker;
     __weak IBOutlet UISegmentedControl *segmentedControl;
     __weak IBOutlet UITextField *borrowerNumberField;
     
+    __weak IBOutlet UITextField *descriptionTextField;
     PFObject *deal;
     
     UIImage *itemImage;
@@ -44,17 +44,19 @@
     
     self.BorrowerTextFieldProperty.delegate = self;
     self.itemTextFieldProperty.delegate = self;
-    
+    self.descriptionTextFieldProperty.delegate = self;
     
     deal = [PFObject objectWithClassName:@"Deal"];
     deal[@"startdate"] = [NSDate date];
     [super viewDidLoad];
+    
     
  
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [borrowerTextField resignFirstResponder];
     [itemTextField resignFirstResponder];
+    [descriptionTextField resignFirstResponder];
     return NO;
 }
 
@@ -84,7 +86,7 @@
     
     deal [@"borrower"] = borrowerTextField.text;
     deal [@"item"] = itemTextField.text;
-    deal [@"description"] = descriptionTextView.text;
+    deal [@"description"] = descriptionTextField.text;
     deal [@"isdealdone"] = @NO;
     deal [@"borrowernumber"] = borrowerNumberField.text;
     deal [@"user"] = [PFUser currentUser];

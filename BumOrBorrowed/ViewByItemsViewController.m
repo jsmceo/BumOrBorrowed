@@ -84,14 +84,12 @@
         dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID2"];
     }
     
-    PFFile* file = [object objectForKey:@"itemimage"];
-    NSError* error;
-    NSData* data = [file getData: &error];
     
     dealCell.textLabel.text = [object objectForKey:@"item"];
     //dealCell.imageView.image = [object objectForKey:@"itemimage"];
     //need to look at how to get pffile image back to image. should be done somewhere in project already
-    dealCell.imageView.file = [PFFile fileWithData:data];
+    dealCell.imageView.file = [object objectForKey:@"itemimage"];
+    
     
    
     
