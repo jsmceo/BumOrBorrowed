@@ -15,7 +15,6 @@
 
 @interface DealViewController () <UIImagePickerControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 {
-    __weak IBOutlet UITextField *lendorTextField;
     __weak IBOutlet UITextField *borrowerTextField;
     __weak IBOutlet UITextField *itemTextField;
     __weak IBOutlet UITextView *descriptionTextView;
@@ -43,16 +42,29 @@
 - (void)viewDidLoad
 {
     
+    self.BorrowerTextFieldProperty.delegate = self;
+    self.itemTextFieldProperty.delegate = self;
+    
+    
     deal = [PFObject objectWithClassName:@"Deal"];
     deal[@"startdate"] = [NSDate date];
-
     [super viewDidLoad];
     
  
 }
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [borrowerTextField resignFirstResponder];
+    [itemTextField resignFirstResponder];
+    return NO;
+}
 
-
-
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UIView * txt in self.view.subviews){
+        if ([txt isKindOfClass:[UITextField class]] && [txt isFirstResponder]) {
+            [txt resignFirstResponder];
+        }
+    }
+}
 -(void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
@@ -68,15 +80,15 @@
 {
   
     //deal [@"dealtitle"] = dealNameTextField.text;
-    deal [@"dealtitle"] =[NSString stringWithFormat: @"%@ Lends %@ %@", lendorTextField.text, borrowerTextField.text, itemTextField.text];
+    deal [@"dealtitle"] =[NSString stringWithFormat: @"%@ Borrowed %@", borrowerTextField.text, itemTextField.text];
     
-    deal [@"lendor"] = lendorTextField.text;
     deal [@"borrower"] = borrowerTextField.text;
     deal [@"item"] = itemTextField.text;
     deal [@"description"] = descriptionTextView.text;
     deal [@"isdealdone"] = @NO;
     deal [@"borrowernumber"] = borrowerNumberField.text;
     deal [@"user"] = [PFUser currentUser];
+    
     //need if statement here for if the borrower is NOT a facebook user. cant save nil FBID it breaks
     //need to check if saving fbid as empty string is right way... might just want to learn how to leave it empty
     if ( FBID == nil) {
@@ -84,7 +96,9 @@
     }else{
     deal [@"FBID"] = FBID;
     }
+
     
+        
     NSData *data = UIImageJPEGRepresentation(itemImage, 0.9);
     
     if (data.length) {

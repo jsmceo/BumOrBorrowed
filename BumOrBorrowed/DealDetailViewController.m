@@ -14,7 +14,6 @@
 
 @interface DealDetailViewController ()
 {
-    __weak IBOutlet UITextField *lendorDealDetailViewTextField;
     
     __weak IBOutlet UITextField *borrowerDealDetailViewTextField;
     
@@ -55,7 +54,6 @@
     [super viewDidLoad];
 
 
-    lendorDealDetailViewTextField.text = [_deal objectForKey:@"lendor"];
     borrowerDealDetailViewTextField.text = [_deal objectForKey:@"borrower"];
     itemDealDetailViewTextField.text = [_deal objectForKey:@"item"];
     

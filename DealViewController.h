@@ -15,6 +15,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *BorrowerTextFieldProperty;
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberFieldProperty;
+@property (weak, nonatomic) IBOutlet UITextField *itemTextFieldProperty;
+
 
 @property(strong, nonatomic)UIImagePickerController *imagePicker;
 

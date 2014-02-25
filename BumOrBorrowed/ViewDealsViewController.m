@@ -191,7 +191,7 @@
     PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
     [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
     
-    deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
+    deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Borrowed %@", [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
                            
                            deal [@"isdealdone"] = @YES;
     [deal saveInBackground];
