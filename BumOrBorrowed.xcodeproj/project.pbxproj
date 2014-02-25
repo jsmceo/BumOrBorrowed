@@ -41,6 +41,7 @@
 		F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F54EE85C18B3EBA3009821FA /* free-camera-icon.png */; };
 		F54EE86018B3FAE7009821FA /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85E18B3FAE7009821FA /* AddressBook.framework */; };
 		F54EE86118B3FAE7009821FA /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */; };
+		F5A51CB118BD00E200FCCA6A /* ItemsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */; };
 		F5BB661918B514CB00462F36 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661818B514CB00462F36 /* facebook.png */; };
 		F5BB661B18B515A400462F36 /* facebook f blue.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661A18B515A400462F36 /* facebook f blue.png */; };
 		F5BB661F18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661E18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png */; };
@@ -102,6 +103,8 @@
 		F54EE85C18B3EBA3009821FA /* free-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "free-camera-icon.png"; sourceTree = "<group>"; };
 		F54EE85E18B3FAE7009821FA /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		F5A51CAF18BD00E200FCCA6A /* ItemsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCustomCell.h; sourceTree = "<group>"; };
+		F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCustomCell.m; sourceTree = "<group>"; };
 		F5BB661818B514CB00462F36 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		F5BB661A18B515A400462F36 /* facebook f blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook f blue.png"; sourceTree = "<group>"; };
 		F5BB661E18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_f_blue_color_match_attempt.png; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				054ACF0018A952EB00AAF46F /* ViewController.h */,
 				054ACF0118A952EB00AAF46F /* ViewController.m */,
 				054ACF3318AAD26400AAF46F /* Main.storyboard */,
+				F5A51CAF18BD00E200FCCA6A /* ItemsCustomCell.h */,
+				F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */,
 				F5BB662018B6732100462F36 /* ViewByItemsViewController.h */,
 				F5BB662118B6732100462F36 /* ViewByItemsViewController.m */,
 				054ACF3618AAE1F800AAF46F /* DealDetailViewController.h */,
@@ -392,6 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				054ACF3218AA98FC00AAF46F /* ViewDealsViewController.m in Sources */,
+				F5A51CB118BD00E200FCCA6A /* ItemsCustomCell.m in Sources */,
 				054ACF3818AAE1F800AAF46F /* DealDetailViewController.m in Sources */,
 				054ACF2F18AA8A8700AAF46F /* DealViewController.m in Sources */,
 				F5BB662218B6732100462F36 /* ViewByItemsViewController.m in Sources */,

@@ -10,12 +10,14 @@
 #import "Parse/Parse.h"
 #import "ViewDealsViewController.h"
 #import "DealDetailViewController.h"
+#import "ItemsCustomCell.h"
 
 
 @interface ViewByItemsViewController ()<UITableViewDataSource,UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
 {
     PFObject *deal;
     
+
 }
 
 @end
@@ -55,7 +57,7 @@
         return nil;
     }else{
         
-        [query orderByAscending:@"enddate"];
+        [query orderByDescending:@"item"];
         [query whereKey:@"user" equalTo:[PFUser currentUser]];
         
         
@@ -79,16 +81,16 @@
 
 -(PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    PFTableViewCell *dealCell = [tableView dequeueReusableCellWithIdentifier:@"reuseID2"];
+    ItemsCustomCell *dealCell = [tableView dequeueReusableCellWithIdentifier:@"reuseID2"];
     if (!dealCell) {
-        dealCell = [[PFTableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID2"];
+        dealCell = [[ItemsCustomCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"reuseID2"];
     }
     
-    
-    dealCell.textLabel.text = [object objectForKey:@"item"];
+    dealCell.itemTitleLabel.text = [object objectForKey:@"item"];
     //dealCell.imageView.image = [object objectForKey:@"itemimage"];
     //need to look at how to get pffile image back to image. should be done somewhere in project already
-    dealCell.imageView.file = [object objectForKey:@"itemimage"];
+    dealCell.itemImageView.file = [object objectForKey:@"itemimage"];
+    [dealCell.itemImageView loadInBackground];
     
     
    
@@ -103,18 +105,18 @@
     NSString *dateString2 = [dateFormat stringFromDate:date2];
     
     if (dateString == NULL) {
-        dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@", [object objectForKey:@"borrower"],  dateString2];
+        dealCell.DetailLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@", [object objectForKey:@"borrower"],  dateString2];
     }else{
         
         
-        dealCell.detailTextLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@ - End Date %@", [object objectForKey:@"borrower"], dateString2, dateString];
+        dealCell.DetailLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@ - End Date %@", [object objectForKey:@"borrower"], dateString2, dateString];
         
     }
     if ([[object objectForKey:@"isdealdone"] boolValue] ) {
      //   NSLog(@"%@", deal);
         //deal [[dealCell.textLabel.textColor] = [UIColor redColor]];
-        dealCell.textLabel.textColor = [UIColor redColor];
-        dealCell.detailTextLabel.textColor = [UIColor redColor];
+        dealCell.itemTitleLabel.textColor = [UIColor redColor];
+        dealCell.DetailLabel.textColor = [UIColor redColor];
         dealCell.accessoryType = UITableViewCellAccessoryCheckmark;
        // deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
         
@@ -122,8 +124,8 @@
     }
     
     else{
-        dealCell.textLabel.textColor = [UIColor greenColor];
-        dealCell.detailTextLabel.textColor = [UIColor greenColor];
+        dealCell.itemTitleLabel.textColor = [UIColor greenColor];
+        dealCell.DetailLabel.textColor = [UIColor greenColor];
         dealCell.accessoryType = UITableViewCellAccessoryNone;
     }
     
