@@ -41,6 +41,20 @@
 
 - (void)viewDidLoad
 {
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    imagePicker.delegate = self;
+    imagePicker.allowsEditing = YES;
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    
+    
+    [self presentViewController:imagePicker animated:YES completion:NULL];
+
     
     self.BorrowerTextFieldProperty.delegate = self;
     self.itemTextFieldProperty.delegate = self;
