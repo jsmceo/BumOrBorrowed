@@ -10,5 +10,6 @@
 #import "Parse/Parse.h"
 
 @interface ViewByItemsViewController : PFQueryTableViewController <UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBarProperty;
 
 @end

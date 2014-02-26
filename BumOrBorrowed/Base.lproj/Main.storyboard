@@ -440,13 +440,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.1602581344" green="0.900390625" blue="0.098179629520000006" alpha="1" colorSpace="calibratedRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="dku-Z9-hbj">
+                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="black" id="5Yd-VG-Lsr">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
-                                <outlet property="delegate" destination="y89-KM-hF6" id="Z6V-Uo-an0"/>
+                                <outlet property="delegate" destination="y89-KM-hF6" id="lrA-5L-Lw3"/>
                             </connections>
                         </searchBar>
                         <prototypes>
@@ -458,50 +460,54 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjJ-gF-42k" customClass="PFImageView">
-                                            <rect key="frame" x="14" y="26" width="292" height="132"/>
+                                            <rect key="frame" x="14" y="12" width="292" height="153"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <view alpha="0.74999999999999978" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-iA-enR">
+                                        <view alpha="0.74999999999999978" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0A-iA-enR" customClass="UIToolbar">
                                             <rect key="frame" x="14" y="99" width="292" height="66"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="147" translatesAutoresizingMaskIntoConstraints="NO" id="tyn-gP-b8s">
-                                                    <rect key="frame" x="0.0" y="-7" width="147" height="34"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="tyn-gP-b8s">
+                                                    <rect key="frame" x="2" y="-7" width="272" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="127" translatesAutoresizingMaskIntoConstraints="NO" id="cRd-Fm-us9">
-                                                    <rect key="frame" x="0.0" y="14" width="127" height="38"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="272" translatesAutoresizingMaskIntoConstraints="NO" id="cRd-Fm-us9">
+                                                    <rect key="frame" x="2" y="17" width="272" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xE-ua-nnm">
-                                                    <rect key="frame" x="135" y="22" width="110" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOv-GN-xhw">
-                                                    <rect key="frame" x="0.0" y="45" width="138" height="21"/>
+                                                    <rect key="frame" x="2" y="45" width="179" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                 <connections>
                                     <outlet property="DetailLabel" destination="cRd-Fm-us9" id="8Bp-hF-dFf"/>
                                     <outlet property="endDateLabel" destination="FOv-GN-xhw" id="mJa-e3-g05"/>
                                     <outlet property="itemImageView" destination="TjJ-gF-42k" id="2XG-td-5Lo"/>
                                     <outlet property="itemTitleLabel" destination="tyn-gP-b8s" id="qTk-H9-1Wd"/>
-                                    <outlet property="startDateLabel" destination="7xE-ua-nnm" id="Mfk-pm-96j"/>
                                     <segue destination="Yza-uh-dWb" kind="push" identifier="dealSegue2" id="1pe-UM-Fg4"/>
                                 </connections>
                             </tableViewCell>
@@ -521,13 +527,13 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <segment title="Borrowed"/>
                                 <segment title="Returned"/>
                             </segments>
-                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.38039215686274508" green="0.72941176470588232" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onSegmentChanged:" destination="y89-KM-hF6" eventType="valueChanged" id="ymh-RS-2vj"/>
                             </connections>
                         </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Ha2-Wg-rop">
-                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.38039215686274508" green="0.72941176470588232" blue="0.68235294117647061" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="qeg-wQ-to9"/>
                             </connections>
@@ -539,6 +545,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </refreshControl>
                     <connections>
                         <outlet property="onSegmentChangedOutlet" destination="nBy-Z9-YUN" id="Ml9-Yf-U91"/>
+                        <outlet property="searchBar" destination="5Yd-VG-Lsr" id="Lst-MJ-Yid"/>
+                        <outlet property="searchBarProperty" destination="5Yd-VG-Lsr" id="sfD-Gy-kO8"/>
                         <outlet property="searchDisplayController" destination="quV-Ef-ql3" id="Vi9-8C-pYh"/>
                     </connections>
                 </tableViewController>
@@ -546,7 +554,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 <searchDisplayController id="quV-Ef-ql3">
                     <connections>
                         <outlet property="delegate" destination="y89-KM-hF6" id="hJR-5h-e4R"/>
-                        <outlet property="searchBar" destination="dku-Z9-hbj" id="rfP-Bw-gVE"/>
                         <outlet property="searchContentsController" destination="y89-KM-hF6" id="JaX-84-2Mv"/>
                         <outlet property="searchResultsDataSource" destination="y89-KM-hF6" id="fN9-v4-MFV"/>
                         <outlet property="searchResultsDelegate" destination="y89-KM-hF6" id="bRG-wC-jsV"/>

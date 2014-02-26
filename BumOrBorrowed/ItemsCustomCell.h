@@ -14,7 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *DetailLabel;
 @property (weak, nonatomic) IBOutlet PFImageView *itemImageView;
-@property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 
 @end

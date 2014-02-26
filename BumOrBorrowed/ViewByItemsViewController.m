@@ -13,11 +13,14 @@
 #import "ItemsCustomCell.h"
 
 
-@interface ViewByItemsViewController ()<UITableViewDataSource,UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate>
+@interface ViewByItemsViewController ()<UITableViewDataSource,UITableViewDelegate, PFSignUpViewControllerDelegate, PFLogInViewControllerDelegate, UISearchBarDelegate>
 {
     PFObject *deal;
     
     __weak IBOutlet UISegmentedControl *onSegmentChangedOutlet;
+    
+   __weak IBOutlet UISearchBar *searchBar;
+    NSDate *now;
 
 }
 
@@ -40,16 +43,20 @@
     [super viewDidLoad];
     
     
-    
-    
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    
-    [super viewDidAppear:animated];
-    
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [searchBar resignFirstResponder];
 }
+
+
+
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self loadObjects];
+}
+
 
 - (IBAction)onSegmentChanged:(UISegmentedControl*)sender
 {
@@ -79,8 +86,15 @@
         [query whereKey:@"user" equalTo:[PFUser currentUser]];
         [query whereKey:@"isdealdone" equalTo:@YES];
     }
+    
+    if (searchBar.text.length) {
+        [query whereKey:@"item" matchesRegex:searchBar.text modifiers:@"i"];
+    }
+
     return query;
 }
+
+
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -104,8 +118,7 @@
     dealCell.itemTitleLabel.text = [object objectForKey:@"item"];
     //dealCell.imageView.image = [object objectForKey:@"itemimage"];
     //need to look at how to get pffile image back to image. should be done somewhere in project already
-    dealCell.DetailLabel.text = [object objectForKey:@"borrower"];
-    dealCell.itemImageView.file = [object objectForKey:@"itemimage"];
+        dealCell.itemImageView.file = [object objectForKey:@"itemimage"];
     [dealCell.itemImageView loadInBackground];
     
     
@@ -119,38 +132,40 @@
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
     [dateFormat2 setDateStyle:NSDateFormatterShortStyle];
     NSString *dateString2 = [dateFormat stringFromDate:date2];
-    dealCell.startDateLabel.text = [NSString stringWithFormat:@"Start Date: %@", dateString2];
+                                 
+    dealCell.DetailLabel.text = [NSString stringWithFormat:@"Lent to %@ on %@", [object objectForKey:@"borrower"], dateString2];
     
     if (dateString == NULL) {
         dealCell.endDateLabel.text = nil;
     }
-    else{
-
-        dealCell.endDateLabel.text = [NSString stringWithFormat:@"Return Date: %@", dateString];
+    if (!(dateString == NULL)) {
+        dealCell.endDateLabel.text = [NSString stringWithFormat:@"Returning on %@", dateString];
     }
-    
+    date = [NSDate date];
+
+    if (date.timeIntervalSince1970 > [[object objectForKey:@"enddate"] timeIntervalSince1970] && object[@"enddate"]) {
+        dealCell.endDateLabel.text = @"Late";
+    }
+
     
     if ([[object objectForKey:@"isdealdone"] boolValue] ) {
      //   NSLog(@"%@", deal);
         //deal [[dealCell.textLabel.textColor] = [UIColor redColor]];
-        dealCell.itemTitleLabel.textColor = [UIColor redColor];
-        dealCell.DetailLabel.textColor = [UIColor redColor];
-        dealCell.accessoryType = UITableViewCellAccessoryCheckmark;
+       
+       
        // deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
-        dealCell.startDateLabel.textColor = [UIColor redColor];
-        dealCell.endDateLabel.textColor = [UIColor redColor];
-        
+        dealCell.endDateLabel.textColor = [UIColor greenColor];
+        dealCell.endDateLabel.text = @"Returned";
+
     }
     
     else{
-        dealCell.itemTitleLabel.textColor = [UIColor greenColor];
-        dealCell.DetailLabel.textColor = [UIColor greenColor];
-        dealCell.accessoryType = UITableViewCellAccessoryNone;
-        dealCell.startDateLabel.textColor = [UIColor greenColor];
-        dealCell.endDateLabel.textColor = [UIColor greenColor];
+       
+       
+        
+        dealCell.endDateLabel.textColor = [UIColor redColor];
     }
-    
-   
+
     
     
     
@@ -182,5 +197,6 @@
 {
     
 }
+
 
 @end
