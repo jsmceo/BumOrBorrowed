@@ -163,9 +163,9 @@
     
     //this bit saves the deal and make it say lent instead of lend, but only upon the button being pushed. If you open app and button was pushed from prior session it wont come up as lent, still lends instead. bit above under the bool doesnt do it either.
 }
-//-(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
-//{
-//    
-//}
+-(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
+{
+    
+}
 
 @end
