@@ -17,6 +17,7 @@
 {
     PFObject *deal;
     
+    __weak IBOutlet UISegmentedControl *onSegmentChangedOutlet;
 
 }
 
@@ -49,6 +50,12 @@
     [super viewDidAppear:animated];
     
 }
+
+- (IBAction)onSegmentChanged:(UISegmentedControl*)sender
+{
+    [self loadObjects];
+}
+
 -(PFQuery *)queryForTable
 {
     PFQuery *query = [PFQuery queryWithClassName:self.parseClassName];
@@ -61,10 +68,18 @@
         [query whereKey:@"user" equalTo:[PFUser currentUser]];
         
         
-        return query;
+        
         //not working as we'd like. still seems random but onto the right idea.
     }
-    
+    if (onSegmentChangedOutlet.selectedSegmentIndex == 1) {
+        [query whereKey:@"user" equalTo:[PFUser currentUser]];
+        [query whereKey:@"isdealdone" equalTo:@NO];
+    }
+    if (onSegmentChangedOutlet.selectedSegmentIndex == 2) {
+        [query whereKey:@"user" equalTo:[PFUser currentUser]];
+        [query whereKey:@"isdealdone" equalTo:@YES];
+    }
+    return query;
 }
 
 
