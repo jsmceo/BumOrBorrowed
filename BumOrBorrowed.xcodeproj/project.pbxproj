@@ -42,6 +42,7 @@
 		F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F54EE85C18B3EBA3009821FA /* free-camera-icon.png */; };
 		F54EE86018B3FAE7009821FA /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85E18B3FAE7009821FA /* AddressBook.framework */; };
 		F54EE86118B3FAE7009821FA /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */; };
+		F5540E8D18BE88BE00819480 /* DealDetailDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5540E8C18BE88BE00819480 /* DealDetailDatePickerViewController.m */; };
 		F5A51CB118BD00E200FCCA6A /* ItemsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */; };
 		F5A51CB918BD2BE200FCCA6A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A51CB818BD2BE200FCCA6A /* MessageUI.framework */; };
 		F5BB661918B514CB00462F36 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661818B514CB00462F36 /* facebook.png */; };
@@ -106,6 +107,8 @@
 		F54EE85C18B3EBA3009821FA /* free-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "free-camera-icon.png"; sourceTree = "<group>"; };
 		F54EE85E18B3FAE7009821FA /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		F5540E8B18BE88BE00819480 /* DealDetailDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DealDetailDatePickerViewController.h; path = ../DealDetailDatePickerViewController.h; sourceTree = "<group>"; };
+		F5540E8C18BE88BE00819480 /* DealDetailDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DealDetailDatePickerViewController.m; path = ../DealDetailDatePickerViewController.m; sourceTree = "<group>"; };
 		F5A51CAF18BD00E200FCCA6A /* ItemsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCustomCell.h; sourceTree = "<group>"; };
 		F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCustomCell.m; sourceTree = "<group>"; };
 		F5A51CB818BD2BE200FCCA6A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -209,6 +212,8 @@
 		054ACEF118A952EB00AAF46F /* BumOrBorrowed */ = {
 			isa = PBXGroup;
 			children = (
+				F5540E8B18BE88BE00819480 /* DealDetailDatePickerViewController.h */,
+				F5540E8C18BE88BE00819480 /* DealDetailDatePickerViewController.m */,
 				054ACEFA18A952EB00AAF46F /* AppDelegate.h */,
 				054ACEFB18A952EB00AAF46F /* AppDelegate.m */,
 				054ACF2D18AA8A8700AAF46F /* DealViewController.h */,
@@ -409,6 +414,7 @@
 				054ACF3818AAE1F800AAF46F /* DealDetailViewController.m in Sources */,
 				054ACF2F18AA8A8700AAF46F /* DealViewController.m in Sources */,
 				F5BB662218B6732100462F36 /* ViewByItemsViewController.m in Sources */,
+				F5540E8D18BE88BE00819480 /* DealDetailDatePickerViewController.m in Sources */,
 				054ACF0218A952EB00AAF46F /* ViewController.m in Sources */,
 				054ACEFC18A952EB00AAF46F /* AppDelegate.m in Sources */,
 				054ACEF818A952EB00AAF46F /* main.m in Sources */,

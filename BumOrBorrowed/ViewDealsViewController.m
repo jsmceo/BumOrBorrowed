@@ -189,11 +189,10 @@
 -(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender
 {
     PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
-    [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
+    [dealQuery whereKey:@"user" equalTo:[PFUser currentUser]];
     
-    deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Borrowed %@", [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
+  
                            
-                           deal [@"isdealdone"] = @YES;
     [deal saveInBackground];
     
 //this bit saves the deal and make it say lent instead of lend, but only upon the button being pushed. If you open app and button was pushed from prior session it wont come up as lent, still lends instead. bit above under the bool doesnt do it either.

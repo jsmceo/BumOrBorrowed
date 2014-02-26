@@ -10,16 +10,19 @@
 #import "Parse/Parse.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <AddressBookUI/AddressBookUI.h>
-
+#import "DealDetailDatePickerViewController.h"
 
 
 @interface DealViewController () <UIImagePickerControllerDelegate, PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
 {
     __weak IBOutlet UITextField *borrowerTextField;
     __weak IBOutlet UITextField *itemTextField;
+    __weak IBOutlet UIButton *onStartButtonPressed;
     __weak IBOutlet UIDatePicker *datePicker;
     __weak IBOutlet UISegmentedControl *segmentedControl;
     __weak IBOutlet UITextField *borrowerNumberField;
+    __weak IBOutlet UILabel *startDateLabel;
+    __weak IBOutlet UILabel *endDateLabel;
     
     __weak IBOutlet UITextField *descriptionTextField;
     PFObject *deal;
@@ -110,7 +113,7 @@
     if ( FBID == nil) {
         deal [@"FBID"] = @"";
     }else{
-    deal [@"FBID"] = FBID;
+        deal [@"FBID"] = FBID;
     }
 
     
@@ -308,32 +311,73 @@
 
 
 
+//
+//- (IBAction)onDatePickerDateChanged:(UIDatePicker *)sender {
+//    if (segmentedControl.selectedSegmentIndex == 0)
+//    {
+//        deal[@"startdate"] = datePicker.date;
+//    }
+//    else if (segmentedControl.selectedSegmentIndex == 1)
+//    {
+//        deal[@"enddate"] = datePicker.date;
+//    }
+//}
 
-- (IBAction)onDatePickerDateChanged:(UIDatePicker *)sender {
-    if (segmentedControl.selectedSegmentIndex == 0)
-    {
-        deal[@"startdate"] = datePicker.date;
-    }
-    else if (segmentedControl.selectedSegmentIndex == 1)
-    {
-        deal[@"enddate"] = datePicker.date;
-    }
-}
+//- (IBAction)segmentedControlDatePicker:(UISegmentedControl *)sender
+//{
+//    if (sender.selectedSegmentIndex == 0) {
+//        datePicker.date = [deal objectForKey:@"startdate"];
+//    }
+//    else if (segmentedControl.selectedSegmentIndex == 1) {
+//        if (!deal[@"enddate"]) {
+//            deal[@"enddate"] = [NSDate dateWithTimeInterval:7*24*60*60 sinceDate:datePicker.date];
+//        }
+//        datePicker.date = deal[@"enddate"];
+//    }
+//}
 
-- (IBAction)segmentedControlDatePicker:(UISegmentedControl *)sender
+//-(IBAction)unwindFromDealDetail:(UIStoryboardSegue*)sender
+//{
+//    PFQuery *dealQuery = [PFQuery queryWithClassName:@"Deal"];
+//    [dealQuery whereKey:@"dealtitle" equalTo:[NSString stringWithFormat:@"%@", [deal objectForKey:@"dealtitle"]]];
+//    
+//    deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Borrowed %@", [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
+//    
+//    deal [@"isdealdone"] = @YES;
+//    [deal saveInBackground];
+//    
+//   
+//}
+- (IBAction)onNewDatePickerChanged:(UIDatePicker*)sender
 {
-    if (sender.selectedSegmentIndex == 0) {
-        datePicker.date = [deal objectForKey:@"startdate"];
-    }
-    else if (segmentedControl.selectedSegmentIndex == 1) {
-        if (!deal[@"enddate"]) {
-            deal[@"enddate"] = [NSDate dateWithTimeInterval:7*24*60*60 sinceDate:datePicker.date];
-        }
-        datePicker.date = deal[@"enddate"];
-    }
+    
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender
+{
+    DealDetailDatePickerViewController *picker = segue.destinationViewController;
+    picker.isStartDate = sender == onStartButtonPressed;
 }
 
 
+-(IBAction)unwindFromDatePickerView:(UIStoryboardSegue*)sender
+{
+    
+    DealDetailDatePickerViewController *vc = sender.sourceViewController;
+    NSDate *date = vc.picker.date;
+    
+    NSDateFormatter *startDateFormatter = [[NSDateFormatter alloc]init];
+    [startDateFormatter setDateStyle:NSDateFormatterShortStyle];
+    NSString *dateText = [startDateFormatter stringFromDate:date];
+    
+    if (vc.isStartDate) {
+        startDateLabel.text = dateText;
+        deal[@"startdate"] = date;
+    } else {
+        endDateLabel.text = dateText;
+        deal[@"enddate"] = date;
+    }
+}
 
 
 
