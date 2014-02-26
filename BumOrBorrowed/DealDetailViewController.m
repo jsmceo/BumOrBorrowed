@@ -10,6 +10,7 @@
 #import "Parse/Parse.h"
 #import "ViewDealsViewController.h"
 #import "ViewByItemsViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 
 @interface DealDetailViewController ()
@@ -38,6 +39,7 @@
     UIImage *itemImage;
     PFObject *object;
     NSString *FBID;
+    UIImage *capturedScreen;
 }
 
 @end
@@ -108,4 +110,51 @@
         //idea here was for that phone number field to not appear(or at least be same color as background and seem to not appear) if no number is coming in. cant quite seem to get it properly, surely there is a better way anyways.
     }
 }
+- (IBAction)onSaveSendPressed:(id)sender
+{
+    UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
+    CGRect rect = [keyWindow bounds];
+    UIGraphicsBeginImageContextWithOptions(rect.size,YES,0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [keyWindow.layer renderInContext:context];
+    capturedScreen = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [self sendMessage];
+}
+-(void)sendMessage
+{
+    NSString *recipientPhoneNumber = borrowerNumberField.text;
+
+    if ([MFMessageComposeViewController canSendText])
+    {
+        
+        MFMessageComposeViewController *mvc = [MFMessageComposeViewController new];
+        mvc.recipients = @[recipientPhoneNumber];
+        if (endDateDealDetailViewTextField == nil) {
+            mvc.body =@"I have lent you something with BorrowHero... You're welcome! Review your borrow terms in this image.";
+        }else{
+        mvc.body = [NSString stringWithFormat:@"I have lent you something... You're welcome! Review your borrow terms in this image. %@", endDateDealDetailViewTextField.text];
+        }
+        mvc.messageComposeDelegate = self;
+    
+        if ([MFMessageComposeViewController canSendAttachments])
+        {
+            NSData *data = UIImagePNGRepresentation(capturedScreen);
+            [mvc addAttachmentData:data typeIdentifier:@"public.data" filename:@"image.png"];
+        }
+        
+        [self presentViewController:mvc animated:YES completion:nil];
+    }
+}
+
+
+- (UIView *)snapshotViewAfterScreenUpdates:(BOOL)afterUpdates
+{
+    return NO;
+}
+
+
+
+
 @end

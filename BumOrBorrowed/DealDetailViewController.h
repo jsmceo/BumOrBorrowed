@@ -10,7 +10,10 @@
 #import "Parse/Parse.h"
 #import "ViewDealsViewController.h"
 #import "ViewByItemsViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface DealDetailViewController : UIViewController
+@interface DealDetailViewController : UIViewController <MFMessageComposeViewControllerDelegate>
+
+
 @property PFObject *deal;
 @end

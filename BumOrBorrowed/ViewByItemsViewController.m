@@ -89,6 +89,7 @@
     dealCell.itemTitleLabel.text = [object objectForKey:@"item"];
     //dealCell.imageView.image = [object objectForKey:@"itemimage"];
     //need to look at how to get pffile image back to image. should be done somewhere in project already
+    dealCell.DetailLabel.text = [object objectForKey:@"borrower"];
     dealCell.itemImageView.file = [object objectForKey:@"itemimage"];
     [dealCell.itemImageView loadInBackground];
     
@@ -103,15 +104,17 @@
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
     [dateFormat2 setDateStyle:NSDateFormatterShortStyle];
     NSString *dateString2 = [dateFormat stringFromDate:date2];
+    dealCell.startDateLabel.text = [NSString stringWithFormat:@"Start Date: %@", dateString2];
     
     if (dateString == NULL) {
-        dealCell.DetailLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@", [object objectForKey:@"borrower"],  dateString2];
-    }else{
-        
-        
-        dealCell.DetailLabel.text = [NSString stringWithFormat:@"Borrower: %@ Start Date: %@ - End Date %@", [object objectForKey:@"borrower"], dateString2, dateString];
-        
+        dealCell.endDateLabel.text = nil;
     }
+    else{
+
+        dealCell.endDateLabel.text = [NSString stringWithFormat:@"Return Date: %@", dateString];
+    }
+    
+    
     if ([[object objectForKey:@"isdealdone"] boolValue] ) {
      //   NSLog(@"%@", deal);
         //deal [[dealCell.textLabel.textColor] = [UIColor redColor]];
@@ -119,7 +122,8 @@
         dealCell.DetailLabel.textColor = [UIColor redColor];
         dealCell.accessoryType = UITableViewCellAccessoryCheckmark;
        // deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
-        
+        dealCell.startDateLabel.textColor = [UIColor redColor];
+        dealCell.endDateLabel.textColor = [UIColor redColor];
         
     }
     
@@ -127,6 +131,8 @@
         dealCell.itemTitleLabel.textColor = [UIColor greenColor];
         dealCell.DetailLabel.textColor = [UIColor greenColor];
         dealCell.accessoryType = UITableViewCellAccessoryNone;
+        dealCell.startDateLabel.textColor = [UIColor greenColor];
+        dealCell.endDateLabel.textColor = [UIColor greenColor];
     }
     
    
