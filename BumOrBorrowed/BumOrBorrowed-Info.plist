@@ -39,7 +39,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>AveniMed</string>
+		<string>Avenir.ttc</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>

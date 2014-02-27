@@ -17,7 +17,7 @@
 {
     PFObject *deal;
     
-    __weak IBOutlet UISegmentedControl *onSegmentChangedOutlet;
+    IBOutlet UISegmentedControl *onSegmentChangedOutlet;
     
    __weak IBOutlet UISearchBar *searchBar;
     NSDate *now;
@@ -27,8 +27,6 @@
 @end
 
 @implementation ViewByItemsViewController
-
-
 
 - (void)viewDidLoad
 {
@@ -41,8 +39,35 @@
     self.objectsPerPage = 7;
     
     [super viewDidLoad];
-    
-    
+
+
+    self.navigationItem.title = @"BORROW HERO";
+    self.navigationItem.titleView = nil;
+
+////// max changes
+    self.navigationItem.leftBarButtonItem = nil;
+
+    UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    bg.backgroundColor = [UIColor blackColor];
+    [bg addSubview:onSegmentChangedOutlet];
+    [onSegmentChangedOutlet sizeToFit];
+    onSegmentChangedOutlet.center = CGPointMake(160, 22);
+    [self.view addSubview:bg];
+
+
+    self.navigationController.navigationBar.titleTextAttributes = @{
+        NSFontAttributeName: [UIFont fontWithName:@"Avenir-Black" size:24],
+        NSForegroundColorAttributeName: [UIColor greenColor]
+    };
+
+    [[UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSLog(@"%@", [UIFont fontNamesForFamilyName:obj]);
+    }];
+}
+
+- (void)viewDidLayoutSubviews {
+    onSegmentChangedOutlet.superview.frame = (CGRect){self.tableView.contentOffset, 320, 44};
+    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
 }
 
 -(void)viewDidAppear:(BOOL)animated

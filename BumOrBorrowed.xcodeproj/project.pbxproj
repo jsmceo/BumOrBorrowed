@@ -52,13 +52,7 @@
 		F5552A3D18BED296007891A4 /* Borrow-Hero-Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A3C18BED296007891A4 /* Borrow-Hero-Splash.png */; };
 		F5A51CB118BD00E200FCCA6A /* ItemsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */; };
 		F5A51CB918BD2BE200FCCA6A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A51CB818BD2BE200FCCA6A /* MessageUI.framework */; };
-		F5A6902018BF898900ED9F15 /* Avenir Next.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901818BF898900ED9F15 /* Avenir Next.ttc */; };
-		F5A6902118BF898900ED9F15 /* AveniBla in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901918BF898900ED9F15 /* AveniBla */; };
-		F5A6902218BF898900ED9F15 /* AveniBlaObl in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901A18BF898900ED9F15 /* AveniBlaObl */; };
-		F5A6902318BF898900ED9F15 /* AveniBoo in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901B18BF898900ED9F15 /* AveniBoo */; };
-		F5A6902418BF898900ED9F15 /* AveniBooObl in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901C18BF898900ED9F15 /* AveniBooObl */; };
-		F5A6902518BF898900ED9F15 /* AveniMed in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901D18BF898900ED9F15 /* AveniMed */; };
-		F5A6902618BF898900ED9F15 /* AveniMedObl in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901E18BF898900ED9F15 /* AveniMedObl */; };
+		F5A6902018BF898900ED9F15 /* Avenir.ttc in Resources */ = {isa = PBXBuildFile; fileRef = F5A6901818BF898900ED9F15 /* Avenir.ttc */; };
 		F5A6902918BF9F5700ED9F15 /* BorrowHeroLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6902818BF9F5700ED9F15 /* BorrowHeroLogo.png */; };
 		F5A6902B18BFA0AB00ED9F15 /* Borrow-Hero-Splash (1).png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6902A18BFA0AB00ED9F15 /* Borrow-Hero-Splash (1).png */; };
 		F5BB661918B514CB00462F36 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661818B514CB00462F36 /* facebook.png */; };
@@ -135,13 +129,7 @@
 		F5A51CAF18BD00E200FCCA6A /* ItemsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCustomCell.h; sourceTree = "<group>"; };
 		F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCustomCell.m; sourceTree = "<group>"; };
 		F5A51CB818BD2BE200FCCA6A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		F5A6901818BF898900ED9F15 /* Avenir Next.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Avenir Next.ttc"; sourceTree = "<group>"; };
-		F5A6901918BF898900ED9F15 /* AveniBla */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AveniBla; sourceTree = "<group>"; };
-		F5A6901A18BF898900ED9F15 /* AveniBlaObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AveniBlaObl; sourceTree = "<group>"; };
-		F5A6901B18BF898900ED9F15 /* AveniBoo */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AveniBoo; sourceTree = "<group>"; };
-		F5A6901C18BF898900ED9F15 /* AveniBooObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AveniBooObl; sourceTree = "<group>"; };
-		F5A6901D18BF898900ED9F15 /* AveniMed */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AveniMed; sourceTree = "<group>"; };
-		F5A6901E18BF898900ED9F15 /* AveniMedObl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AveniMedObl; sourceTree = "<group>"; };
+		F5A6901818BF898900ED9F15 /* Avenir.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Avenir.ttc; sourceTree = "<group>"; };
 		F5A6902818BF9F5700ED9F15 /* BorrowHeroLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BorrowHeroLogo.png; sourceTree = "<group>"; };
 		F5A6902A18BFA0AB00ED9F15 /* Borrow-Hero-Splash (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Borrow-Hero-Splash (1).png"; sourceTree = "<group>"; };
 		F5BB661818B514CB00462F36 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
@@ -314,13 +302,7 @@
 		F5A6901518BF893E00ED9F15 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				F5A6901818BF898900ED9F15 /* Avenir Next.ttc */,
-				F5A6901918BF898900ED9F15 /* AveniBla */,
-				F5A6901A18BF898900ED9F15 /* AveniBlaObl */,
-				F5A6901B18BF898900ED9F15 /* AveniBoo */,
-				F5A6901C18BF898900ED9F15 /* AveniBooObl */,
-				F5A6901D18BF898900ED9F15 /* AveniMed */,
-				F5A6901E18BF898900ED9F15 /* AveniMedObl */,
+				F5A6901818BF898900ED9F15 /* Avenir.ttc */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -406,29 +388,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5A6902218BF898900ED9F15 /* AveniBlaObl in Resources */,
 				054ACF3518AAD26400AAF46F /* Main.storyboard in Resources */,
 				F5552A3518BEC2DB007891A4 /* black_line.png in Resources */,
 				F5552A3318BEC002007891A4 /* info-256.png in Resources */,
 				F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */,
 				F5552A2F18BEBB25007891A4 /* slide-circle-black.png in Resources */,
 				F5552A3118BEBFF2007891A4 /* facebook black .png in Resources */,
-				F5A6902418BF898900ED9F15 /* AveniBooObl in Resources */,
 				F5BB661918B514CB00462F36 /* facebook.png in Resources */,
 				054ACF0418A952EB00AAF46F /* Images.xcassets in Resources */,
 				F5BB661B18B515A400462F36 /* facebook f blue.png in Resources */,
 				F5552A3718BEC370007891A4 /* blackline good.png in Resources */,
-				F5A6902318BF898900ED9F15 /* AveniBoo in Resources */,
 				F5A6902B18BFA0AB00ED9F15 /* Borrow-Hero-Splash (1).png in Resources */,
-				F5A6902118BF898900ED9F15 /* AveniBla in Resources */,
 				054ACEF618A952EB00AAF46F /* InfoPlist.strings in Resources */,
 				F5BB661F18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png in Resources */,
-				F5A6902018BF898900ED9F15 /* Avenir Next.ttc in Resources */,
+				F5A6902018BF898900ED9F15 /* Avenir.ttc in Resources */,
 				F5A6902918BF9F5700ED9F15 /* BorrowHeroLogo.png in Resources */,
 				F5552A3D18BED296007891A4 /* Borrow-Hero-Splash.png in Resources */,
 				F5552A3918BEC75D007891A4 /* facebook blacker .png in Resources */,
-				F5A6902618BF898900ED9F15 /* AveniMedObl in Resources */,
-				F5A6902518BF898900ED9F15 /* AveniMed in Resources */,
 				05BEAD8218BE5B72000E0581 /* DatePickerButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
