@@ -618,7 +618,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </segmentedControl>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="ic_nav_add_normal" id="Ha2-Wg-rop">
+                        <barButtonItem key="rightBarButtonItem" image="ic_nav_add_normal" style="done" id="Ha2-Wg-rop">
                             <color key="tintColor" red="0.35686274509999999" green="0.74509803919999995" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="qeg-wQ-to9"/>

@@ -68,6 +68,13 @@
     NSString *dateString = [dateFormat stringFromDate:date];
     NSString* borrower = [_deal objectForKey:@"borrower"];
     
+    
+    
+    NSDate *date1 = [_deal objectForKey:@"enddate"];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString1 = [dateFormat1 stringFromDate:date1];
+    
     NSString* tmpString =[NSString stringWithFormat:@"Lent to %@ on %@", borrower, dateString];
     NSString* anotherString = [NSString stringWithFormat:@"%@", tmpString];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -84,10 +91,30 @@
                        value:[UIFont fontWithName:@"Avenir-Black" size:12]
                        range:NSMakeRange(fontIndex, dateString.length + 1)];
     
-    
-    
-
     borrowerDealDetailViewTextField.attributedText = attrString;
+    
+    NSString *returnString = [NSString stringWithFormat:@"And is returning item on %@", dateString1];
+    NSString *anotherString2 = [NSString stringWithFormat:@"%@", returnString];
+    int fontIndex2 = 24;
+    NSMutableAttributedString *attrString2 = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@", anotherString2]];
+    
+    [attrString2 addAttribute:NSFontAttributeName
+                        value:[UIFont fontWithName:@"Avenir-Black" size:12]
+                        range:NSMakeRange(fontIndex2, dateString1.length + 1)];
+    
+    date = [NSDate date];
+    
+    if (date.timeIntervalSince1970 > [[object objectForKey:@"enddate"] timeIntervalSince1970] && object[@"enddate"]) {
+        returnSentenceOutlet.textColor = [UIColor redColor];
+    }
+
+    
+    endDateDealDetailViewTextField.text = dateString1;
+    if ([_deal objectForKey:@"enddate"] == nil) {
+        returnSentenceOutlet.text = nil;
+    }else{
+        returnSentenceOutlet.attributedText = attrString2;
+    }
     
     itemDealDetailViewTextField.text = [_deal objectForKey:@"item"];
     
@@ -99,18 +126,9 @@
         
     //borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], dateString];
       //  }
-    
-    NSDate *date1 = [_deal objectForKey:@"enddate"];
-    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
-    [dateFormat1 setDateStyle:NSDateFormatterMediumStyle];
-    NSString *dateString1 = [dateFormat1 stringFromDate:date1];
+
     //NSLog(@"Date: %@", dateString1);
-    endDateDealDetailViewTextField.text = dateString1;
-    if ([_deal objectForKey:@"enddate"] == nil) {
-        returnSentenceOutlet.text = nil;
-    }else{
-    returnSentenceOutlet.text = [NSString stringWithFormat:@"And is returning item on %@", dateString1];
-    }
+ 
     
                                            
     descriptionDealDetailViewTextView.text = [_deal objectForKey:@"description"];
