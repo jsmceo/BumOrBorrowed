@@ -51,7 +51,7 @@
 
 - (void)viewDidLoad
 {
-    
+    int keyboardAnimationY;
     
     
     lendOutButton.layer.cornerRadius = 5;
@@ -65,11 +65,14 @@
     deal[@"startdate"] = [NSDate date];
     [super viewDidLoad];
     
+  
+    keyboardAnimationY = (self.view.frame.size.height <= 480) ? 315 : 430;
+    
     
     note1 = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:Nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note)
     {
         [UIView animateWithDuration:0.4 animations:^{
-            toolbar.transform = CGAffineTransformMakeTranslation(0, -430);
+            toolbar.transform = CGAffineTransformMakeTranslation(0, -1 * keyboardAnimationY);
         }];
     }];
     note2 = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification object:Nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note)
