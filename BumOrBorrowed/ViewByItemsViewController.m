@@ -45,7 +45,7 @@
     self.navigationItem.titleView = nil;
 
 ////// max changes
-    self.navigationItem.leftBarButtonItem = nil;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic_nav_logout_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(logOut)];
 
     UIView *bg = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     bg.backgroundColor = [UIColor blackColor];
