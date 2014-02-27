@@ -206,8 +206,7 @@
 
 -(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result error:(NSError*)error
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
-
+    [controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 

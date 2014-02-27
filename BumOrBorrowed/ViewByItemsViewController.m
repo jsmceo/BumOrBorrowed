@@ -66,6 +66,16 @@
     [self stylePFLoadingViewTheHardWay];
 }
 
+
+
+- (void)logOut
+{
+    [PFUser logOut];
+    [self.tableView reloadData];
+    [self viewDidAppear:YES];
+    
+}
+
 - (void)viewDidLayoutSubviews {
     onSegmentChangedOutlet.superview.frame = (CGRect){self.tableView.contentOffset, 320, 44};
     self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 8, 0);
@@ -107,12 +117,12 @@
         label.text = @"BorrowHero Login";
         [label sizeToFit];
         logInViewController.logInView.logo = label;
-        label.textColor = [UIColor colorWithRed:0.000 green:0.694 blue:0.373 alpha:1];
+        label.textColor = [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1];
         label = [[UILabel alloc]initWithFrame:CGRectZero];
         label.text = @"BorrowHero Sign Up";
         [label sizeToFit];
         logInViewController.signUpController.signUpView.logo = label;
-        label.textColor = [UIColor colorWithRed:0.000 green:0.694 blue:0.373 alpha:1];
+        label.textColor = [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1];
         
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
