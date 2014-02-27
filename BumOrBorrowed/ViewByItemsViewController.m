@@ -64,6 +64,8 @@
     }];
 
     [self stylePFLoadingViewTheHardWay];
+
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1];
 }
 
 
