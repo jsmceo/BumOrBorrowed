@@ -61,23 +61,28 @@
 
 
     //borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on", [_deal objectForKey:@"borrower"]];
-    borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
+   // borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
+    NSDate *date = [_deal objectForKey:@"startdate"];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    NSString* borrower = [_deal objectForKey:@"borrower"];
     
-    
-    
-    NSString* tmpString =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
+    NSString* tmpString =[NSString stringWithFormat:@"Lent to %@ on %@", borrower, dateString];
+    NSString* anotherString = [NSString stringWithFormat:@"%@", tmpString];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    int fontIndex = 7 + borrower.length + 4;
     paragraphStyle.alignment = NSTextAlignmentCenter;
     //UIFont *labelFont = [UIFont fontWithName:@"Avenir-Medium" size:12];
     
-    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"%@",tmpString]];
-    [attrString addAttribute:NSFontAttributeName
-                       value:[UIFont fontWithName:@"Avenir-Medium" size:12]
-                       range:NSMakeRange(0, 4)];
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"%@",anotherString]];
+//    [attrString addAttribute:NSFontAttributeName
+//                       value:[UIFont fontWithName:@"Avenir-Medium" size:16]
+//                       range:NSMakeRange(0, 4)];
 
     [attrString addAttribute:NSFontAttributeName
-                       value:[UIFont fontWithName:@"Avenir-Heavy" size:12]
-                       range:NSMakeRange(14, 9)];
+                       value:[UIFont fontWithName:@"Avenir-Black" size:12]
+                       range:NSMakeRange(fontIndex, dateString.length + 1)];
     
     
     
@@ -86,17 +91,14 @@
     
     itemDealDetailViewTextField.text = [_deal objectForKey:@"item"];
     
-    NSDate *date = [_deal objectForKey:@"startdate"];
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateStyle:NSDateFormatterMediumStyle];
-    NSString *dateString = [dateFormat stringFromDate:date];
+ 
    // NSLog(@"Date: %@", dateString);
-    if ([_deal objectForKey:@"borrower"] == [NSString stringWithFormat:@""] ) {
-        borrowerDealDetailViewTextField.text = [NSString stringWithFormat:@"Lent on %@", dateString];
-    } else{
+    //if ([_deal objectForKey:@"borrower"] == [NSString stringWithFormat:@""] ) {
+    //    borrowerDealDetailViewTextField.text = [NSString stringWithFormat:@"Lent on %@", dateString];
+    //} else{
         
-    borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], dateString];
-        }
+    //borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], dateString];
+      //  }
     
     NSDate *date1 = [_deal objectForKey:@"enddate"];
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -172,21 +174,21 @@
         }else{
         mvc.body = [NSString stringWithFormat:@"I have lent you something... You're welcome! Review your borrow terms in this image. %@", endDateDealDetailViewTextField.text];
         }
-        mvc.messageComposeDelegate = self;
     
         if ([MFMessageComposeViewController canSendAttachments])
         {
             NSData *data = UIImagePNGRepresentation(capturedScreen);
             [mvc addAttachmentData:data typeIdentifier:@"public.data" filename:@"image.png"];
         }
-        
+        mvc.messageComposeDelegate = self;
+
         [self presentViewController:mvc animated:YES completion:nil];
     }
 }
 
 -(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result error:(NSError*)error
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 
 }
 
