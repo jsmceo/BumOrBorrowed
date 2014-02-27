@@ -56,18 +56,20 @@
 
 
     self.navigationController.navigationBar.titleTextAttributes = @{
-        NSFontAttributeName: [UIFont fontWithName:@"Avenir-Black" size:24],
+        NSFontAttributeName: [UIFont fontWithName:@"AvenirNextCondensed-Bold" size:24],
         NSForegroundColorAttributeName: [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1]
     };
 
     [[UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSLog(@"%@", [UIFont fontNamesForFamilyName:obj]);
     }];
+
+    [self stylePFLoadingViewTheHardWay];
 }
 
 - (void)viewDidLayoutSubviews {
     onSegmentChangedOutlet.superview.frame = (CGRect){self.tableView.contentOffset, 320, 44};
-    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(44, 0, 8, 0);
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -281,6 +283,42 @@
 -(IBAction)unwindFromComposeDeal:(UIStoryboardSegue*)sender
 {
     
+}
+
+
+- (void)stylePFLoadingViewTheHardWay
+{
+    UIColor *labelTextColor = [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1];
+    UIColor *labelShadowColor = [UIColor clearColor];
+    UIActivityIndicatorViewStyle activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
+
+    // go through all of the subviews until you find a PFLoadingView subclass
+    for (UIView *subview in self.view.subviews)
+    {
+        if ([subview class] == NSClassFromString(@"PFLoadingView"))
+        {
+            // find the loading label and loading activity indicator inside the PFLoadingView subviews
+            for (UIView *loadingViewSubview in subview.subviews) {
+                if ([loadingViewSubview isKindOfClass:[UILabel class]])
+                {
+                    UILabel *label = (UILabel *)loadingViewSubview;
+                    {
+                        label.textColor = labelTextColor;
+                        label.shadowColor = labelShadowColor;
+                        label.text = @"Loading…";
+                        label.font = [UIFont fontWithName:@"AvenirNext-Medium" size:label.font.pointSize];
+                        [label sizeToFit];
+                    }
+                }
+
+                if ([loadingViewSubview isKindOfClass:[UIActivityIndicatorView class]])
+                {
+                    UIActivityIndicatorView *activityIndicatorView = (UIActivityIndicatorView *)loadingViewSubview;
+                    activityIndicatorView.activityIndicatorViewStyle = activityIndicatorViewStyle;
+                }
+            }
+        }
+    }
 }
 
 
