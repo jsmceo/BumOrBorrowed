@@ -22,6 +22,10 @@
         self.itemTitleLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:16];
         self.DetailLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:14];
         self.endDateLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:14];
+
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1];
+        [self setSelectedBackgroundView:bgColorView];
     }
 
     [self.contentView insertSubview:blur aboveSubview:self.itemImageView];
