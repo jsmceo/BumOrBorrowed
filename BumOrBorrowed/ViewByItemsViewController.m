@@ -45,6 +45,67 @@
     
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    [super viewDidAppear:animated];
+    
+    
+    if (![PFUser currentUser]) {
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
+        
+        [logInViewController setDelegate:self];
+        
+        [logInViewController setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships",@"email",@"read_insights",@"create_event",@"manage_notifications",@"user_location",@"publish_actions"]];
+        
+        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+        | PFLogInFieldsLogInButton
+        | PFLogInFieldsSignUpButton
+        | PFLogInFieldsPasswordForgotten
+        | PFLogInFieldsDismissButton
+        | PFLogInFieldsFacebook;
+        
+        
+        
+        //        if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
+        //            [PFFacebookUtils linkUser:[PFUser currentUser] permissions:nil block:^(BOOL succeeded, NSError *error)
+        //             }
+        //
+        //
+        //             }
+        
+        
+        
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+        label.text = @"BorrowHero Login";
+        [label sizeToFit];
+        logInViewController.logInView.logo = label;
+        label.textColor = [UIColor greenColor];
+        label = [[UILabel alloc]initWithFrame:CGRectZero];
+        label.text = @"BorrowHero Sign Up";
+        [label sizeToFit];
+        logInViewController.signUpController.signUpView.logo = label;
+        label.textColor = [UIColor greenColor];
+        
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }
+}
+
+-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
+{
+    
+    [signUpController dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+{
+    [logInController dismissViewControllerAnimated:YES completion:nil];
+    [self loadObjects];
+}
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [searchBar resignFirstResponder];
 }
@@ -116,9 +177,8 @@
     }
     
     dealCell.itemTitleLabel.text = [object objectForKey:@"item"];
-    //dealCell.imageView.image = [object objectForKey:@"itemimage"];
-    //need to look at how to get pffile image back to image. should be done somewhere in project already
-        dealCell.itemImageView.file = [object objectForKey:@"itemimage"];
+    dealCell.itemImageView.image = nil;
+    dealCell.itemImageView.file = [object objectForKey:@"itemimage"];
     [dealCell.itemImageView loadInBackground];
     
     

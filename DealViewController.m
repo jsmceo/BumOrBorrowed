@@ -23,7 +23,11 @@
     __weak IBOutlet UITextField *borrowerNumberField;
     __weak IBOutlet UILabel *startDateLabel;
     __weak IBOutlet UILabel *endDateLabel;
+    __weak IBOutlet UIToolbar *toolbar;
+    __weak IBOutlet UIButton *lendOutButton;
+    __weak IBOutlet UINavigationItem *enterNavTitle;
     
+    __weak IBOutlet UIButton *cameraButtonOutlet;
     __weak IBOutlet UITextField *descriptionTextField;
     PFObject *deal;
     
@@ -35,6 +39,8 @@
     
     FBFriendPickerViewController *facebookPickerController;
     NSString *FBID;
+    
+    id note1, note2;
 }
 @end
 
@@ -44,20 +50,9 @@
 
 - (void)viewDidLoad
 {
-    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
-    imagePicker.delegate = self;
-    imagePicker.allowsEditing = YES;
-    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }else if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-    {
-        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
     
-    
-    [self presentViewController:imagePicker animated:YES completion:NULL];
-
+    lendOutButton.layer.cornerRadius = 5;
+  
     
     self.BorrowerTextFieldProperty.delegate = self;
     self.itemTextFieldProperty.delegate = self;
@@ -68,8 +63,33 @@
     [super viewDidLoad];
     
     
- 
+    note1 = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillShowNotification object:Nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note)
+    {
+        [UIView animateWithDuration:0.4 animations:^{
+            toolbar.transform = CGAffineTransformMakeTranslation(0, -430);
+        }];
+    }];
+    note2 = [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillHideNotification object:Nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note)
+     {
+         [UIView animateWithDuration:0.4 animations:^{
+             toolbar.transform = CGAffineTransformIdentity;
+         }];
+     }];
+    
+    UITapGestureRecognizer *gr = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ontap)];
+    [self.view addGestureRecognizer:gr];
+     //enterNavTitle.titleView.
 }
+
+- (void)ontap {
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:note1];
+    [[NSNotificationCenter defaultCenter] removeObserver:note2];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [borrowerTextField resignFirstResponder];
     [itemTextField resignFirstResponder];
@@ -77,18 +97,16 @@
     return NO;
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    for (UIView * txt in self.view.subviews){
-        if ([txt isKindOfClass:[UITextField class]] && [txt isFirstResponder]) {
-            [txt resignFirstResponder];
-        }
-    }
-}
+
+
+
 -(void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
     itemImage= [info valueForKey:UIImagePickerControllerOriginalImage];
     myItemImageView.image = itemImage;
+    
+    cameraButtonOutlet.enabled = NO;
     
     [self dismissViewControllerAnimated:YES completion:NULL];
     
@@ -169,6 +187,7 @@
     NSString* lastName = (__bridge_transfer NSString*)ABRecordCopyValue(person, kABPersonLastNameProperty);
     
     self.BorrowerTextFieldProperty.text = [NSString stringWithFormat:@"%@ %@", name, lastName];
+    //borrowerTextField.font = [UIFont. ]
     
     NSString* phone = nil;
     ABMultiValueRef phoneNumbers = ABRecordCopyValue(person,
@@ -356,7 +375,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender
 {
     DealDetailDatePickerViewController *picker = segue.destinationViewController;
-    picker.isStartDate = sender == onStartButtonPressed;
+    if ([picker isKindOfClass:[DealDetailDatePickerViewController class]])
+        picker.isStartDate = sender == onStartButtonPressed;
 }
 
 

@@ -15,10 +15,8 @@
 
 @implementation DealDetailDatePickerViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.view.frame = [UIScreen mainScreen].bounds;
+-(void)viewDidLoad
+{
+    
 }
-
 @end

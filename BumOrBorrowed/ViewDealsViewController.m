@@ -46,45 +46,45 @@
     [super viewDidAppear:animated];
     
     
-    if (![PFUser currentUser]) {
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
-        
-        [logInViewController setDelegate:self];
-
-        [logInViewController setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships",@"email",@"read_insights",@"create_event",@"manage_notifications",@"user_location",@"publish_actions"]];
-        
-        logInViewController.fields = PFLogInFieldsUsernameAndPassword
-        | PFLogInFieldsLogInButton
-        | PFLogInFieldsSignUpButton
-        | PFLogInFieldsPasswordForgotten
-        | PFLogInFieldsDismissButton
-        | PFLogInFieldsFacebook;
-        
-        
-        
-//        if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
-//            [PFFacebookUtils linkUser:[PFUser currentUser] permissions:nil block:^(BOOL succeeded, NSError *error)
-//             }
-//             
-//                 
-//             }
-        
-       
-        
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
-        label.text = @"BorrowHero Login";
-        [label sizeToFit];
-        logInViewController.logInView.logo = label;
-        label.textColor = [UIColor greenColor];
-        label = [[UILabel alloc]initWithFrame:CGRectZero];
-        label.text = @"BorrowHero Sign Up";
-        [label sizeToFit];
-        logInViewController.signUpController.signUpView.logo = label;
-        label.textColor = [UIColor greenColor];
-
-        [self presentViewController:logInViewController animated:YES completion:NULL];
-    }
+//    if (![PFUser currentUser]) {
+//        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+//        //logInViewController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsFacebook | PFLogInFieldsTwitter;
+//        
+//        [logInViewController setDelegate:self];
+//
+//        [logInViewController setFacebookPermissions:@[@"user_about_me",@"user_birthday",@"user_relationships",@"email",@"read_insights",@"create_event",@"manage_notifications",@"user_location",@"publish_actions"]];
+//        
+//        logInViewController.fields = PFLogInFieldsUsernameAndPassword
+//        | PFLogInFieldsLogInButton
+//        | PFLogInFieldsSignUpButton
+//        | PFLogInFieldsPasswordForgotten
+//        | PFLogInFieldsDismissButton
+//        | PFLogInFieldsFacebook;
+//        
+//        
+//        
+////        if (![PFFacebookUtils isLinkedWithUser:[PFUser currentUser]]){
+////            [PFFacebookUtils linkUser:[PFUser currentUser] permissions:nil block:^(BOOL succeeded, NSError *error)
+////             }
+////             
+////                 
+////             }
+//        
+//       
+//        
+//        UILabel *label = [[UILabel alloc]initWithFrame:CGRectZero];
+//        label.text = @"BorrowHero Login";
+//        [label sizeToFit];
+//        logInViewController.logInView.logo = label;
+//        label.textColor = [UIColor greenColor];
+//        label = [[UILabel alloc]initWithFrame:CGRectZero];
+//        label.text = @"BorrowHero Sign Up";
+//        [label sizeToFit];
+//        logInViewController.signUpController.signUpView.logo = label;
+//        label.textColor = [UIColor greenColor];
+//
+//        [self presentViewController:logInViewController animated:YES completion:NULL];
+//    }
 }
 -(PFQuery *)queryForTable
 {
@@ -102,18 +102,18 @@
     //not working as we'd like. still seems random but onto the right idea.
         } 
 }
--(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
-{
-    
-    [signUpController dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
--(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
-{
-    [logInController dismissViewControllerAnimated:YES completion:nil];
-    [self loadObjects];
-}
+//-(void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user
+//{
+//    
+//    [signUpController dismissViewControllerAnimated:YES completion:nil];
+//    
+//}
+//
+//-(void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user
+//{
+//    [logInController dismissViewControllerAnimated:YES completion:nil];
+//    [self loadObjects];
+//}
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

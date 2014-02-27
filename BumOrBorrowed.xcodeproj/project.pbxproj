@@ -43,6 +43,13 @@
 		F54EE86018B3FAE7009821FA /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85E18B3FAE7009821FA /* AddressBook.framework */; };
 		F54EE86118B3FAE7009821FA /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */; };
 		F5540E8D18BE88BE00819480 /* DealDetailDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5540E8C18BE88BE00819480 /* DealDetailDatePickerViewController.m */; };
+		F5552A2F18BEBB25007891A4 /* slide-circle-black.png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A2E18BEBB25007891A4 /* slide-circle-black.png */; };
+		F5552A3118BEBFF2007891A4 /* facebook black .png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A3018BEBFF2007891A4 /* facebook black .png */; };
+		F5552A3318BEC002007891A4 /* info-256.png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A3218BEC002007891A4 /* info-256.png */; };
+		F5552A3518BEC2DB007891A4 /* black_line.png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A3418BEC2DB007891A4 /* black_line.png */; };
+		F5552A3718BEC370007891A4 /* blackline good.png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A3618BEC370007891A4 /* blackline good.png */; };
+		F5552A3918BEC75D007891A4 /* facebook blacker .png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A3818BEC75D007891A4 /* facebook blacker .png */; };
+		F5552A3D18BED296007891A4 /* Borrow-Hero-Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = F5552A3C18BED296007891A4 /* Borrow-Hero-Splash.png */; };
 		F5A51CB118BD00E200FCCA6A /* ItemsCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */; };
 		F5A51CB918BD2BE200FCCA6A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5A51CB818BD2BE200FCCA6A /* MessageUI.framework */; };
 		F5BB661918B514CB00462F36 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BB661818B514CB00462F36 /* facebook.png */; };
@@ -109,6 +116,13 @@
 		F54EE85F18B3FAE7009821FA /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		F5540E8B18BE88BE00819480 /* DealDetailDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DealDetailDatePickerViewController.h; path = ../DealDetailDatePickerViewController.h; sourceTree = "<group>"; };
 		F5540E8C18BE88BE00819480 /* DealDetailDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DealDetailDatePickerViewController.m; path = ../DealDetailDatePickerViewController.m; sourceTree = "<group>"; };
+		F5552A2E18BEBB25007891A4 /* slide-circle-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slide-circle-black.png"; sourceTree = "<group>"; };
+		F5552A3018BEBFF2007891A4 /* facebook black .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook black .png"; sourceTree = "<group>"; };
+		F5552A3218BEC002007891A4 /* info-256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "info-256.png"; sourceTree = "<group>"; };
+		F5552A3418BEC2DB007891A4 /* black_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_line.png; sourceTree = "<group>"; };
+		F5552A3618BEC370007891A4 /* blackline good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackline good.png"; sourceTree = "<group>"; };
+		F5552A3818BEC75D007891A4 /* facebook blacker .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook blacker .png"; sourceTree = "<group>"; };
+		F5552A3C18BED296007891A4 /* Borrow-Hero-Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Borrow-Hero-Splash.png"; sourceTree = "<group>"; };
 		F5A51CAF18BD00E200FCCA6A /* ItemsCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsCustomCell.h; sourceTree = "<group>"; };
 		F5A51CB018BD00E200FCCA6A /* ItemsCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsCustomCell.m; sourceTree = "<group>"; };
 		F5A51CB818BD2BE200FCCA6A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -231,6 +245,13 @@
 				054ACF3718AAE1F800AAF46F /* DealDetailViewController.m */,
 				054ACF0318A952EB00AAF46F /* Images.xcassets */,
 				05BEAD8118BE5B72000E0581 /* DatePickerButton.png */,
+				F5552A3618BEC370007891A4 /* blackline good.png */,
+				F5552A3418BEC2DB007891A4 /* black_line.png */,
+				F5552A2E18BEBB25007891A4 /* slide-circle-black.png */,
+				F5552A3818BEC75D007891A4 /* facebook blacker .png */,
+				F5552A3C18BED296007891A4 /* Borrow-Hero-Splash.png */,
+				F5552A3018BEBFF2007891A4 /* facebook black .png */,
+				F5552A3218BEC002007891A4 /* info-256.png */,
 				F54EE85C18B3EBA3009821FA /* free-camera-icon.png */,
 				F5BB661A18B515A400462F36 /* facebook f blue.png */,
 				F5BB661818B514CB00462F36 /* facebook.png */,
@@ -351,12 +372,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				054ACF3518AAD26400AAF46F /* Main.storyboard in Resources */,
+				F5552A3518BEC2DB007891A4 /* black_line.png in Resources */,
+				F5552A3318BEC002007891A4 /* info-256.png in Resources */,
 				F54EE85D18B3EBA3009821FA /* free-camera-icon.png in Resources */,
+				F5552A2F18BEBB25007891A4 /* slide-circle-black.png in Resources */,
+				F5552A3118BEBFF2007891A4 /* facebook black .png in Resources */,
 				F5BB661918B514CB00462F36 /* facebook.png in Resources */,
 				054ACF0418A952EB00AAF46F /* Images.xcassets in Resources */,
 				F5BB661B18B515A400462F36 /* facebook f blue.png in Resources */,
+				F5552A3718BEC370007891A4 /* blackline good.png in Resources */,
 				054ACEF618A952EB00AAF46F /* InfoPlist.strings in Resources */,
 				F5BB661F18B6609F00462F36 /* facebook_f_blue_color_match_attempt.png in Resources */,
+				F5552A3D18BED296007891A4 /* Borrow-Hero-Splash.png in Resources */,
+				F5552A3918BEC75D007891A4 /* facebook blacker .png in Resources */,
 				05BEAD8218BE5B72000E0581 /* DatePickerButton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
