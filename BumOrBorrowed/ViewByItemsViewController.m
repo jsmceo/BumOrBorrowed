@@ -40,7 +40,6 @@
     
     [super viewDidLoad];
 
-
     self.navigationItem.title = @"BORROW HERO";
     self.navigationItem.titleView = nil;
 
@@ -108,12 +107,12 @@
         label.text = @"BorrowHero Login";
         [label sizeToFit];
         logInViewController.logInView.logo = label;
-        label.textColor = [UIColor greenColor];
+        label.textColor = [UIColor colorWithRed:0.000 green:0.694 blue:0.373 alpha:1];
         label = [[UILabel alloc]initWithFrame:CGRectZero];
         label.text = @"BorrowHero Sign Up";
         [label sizeToFit];
         logInViewController.signUpController.signUpView.logo = label;
-        label.textColor = [UIColor greenColor];
+        label.textColor = [UIColor colorWithRed:0.000 green:0.694 blue:0.373 alpha:1];
         
         [self presentViewController:logInViewController animated:YES completion:NULL];
     }
@@ -241,7 +240,7 @@
        
        
        // deal [@"dealtitle"] = [NSString stringWithFormat: @"%@ Lent %@ %@", [deal objectForKey:@"lendor"], [deal objectForKey:@"borrower"], [deal objectForKey:@"item"]];
-        dealCell.endDateLabel.textColor = [UIColor greenColor];
+        dealCell.endDateLabel.textColor = [UIColor colorWithRed:0.000 green:0.694 blue:0.373 alpha:1];;
         dealCell.endDateLabel.text = @"Returned";
 
     }

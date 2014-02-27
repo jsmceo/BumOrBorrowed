@@ -18,6 +18,10 @@
     if (!blur) {
         blur = [[UINavigationBar alloc] initWithFrame:CGRectMake(8, 8, 304, 63)];
         blur.barStyle = UIBarStyleDefault;
+
+        self.itemTitleLabel.font = [UIFont fontWithName:@"Avenir-Heavy" size:16];
+        self.DetailLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:14];
+        self.endDateLabel.font = [UIFont fontWithName:@"Avenir-Medium" size:14];
     }
 
     [self.contentView insertSubview:blur aboveSubview:self.itemImageView];
