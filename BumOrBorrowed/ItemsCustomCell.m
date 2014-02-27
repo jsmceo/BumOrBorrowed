@@ -8,24 +8,20 @@
 
 #import "ItemsCustomCell.h"
 
-@implementation ItemsCustomCell
+@implementation ItemsCustomCell {
+    UINavigationBar *blur;
+}
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    if (!blur) {
+        blur = [[UINavigationBar alloc] initWithFrame:CGRectMake(8, 8, 304, 63)];
+        blur.barStyle = UIBarStyleDefault;
     }
-    return self;
-}
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+    [self.contentView insertSubview:blur aboveSubview:self.itemImageView];
+    blur.frame = CGRectMake(8, 103, 304, 63);
 }
-*/
 
 @end
