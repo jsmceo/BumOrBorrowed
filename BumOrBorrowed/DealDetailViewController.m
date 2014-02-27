@@ -62,21 +62,27 @@
 
     //borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on", [_deal objectForKey:@"borrower"]];
     borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
-//    NSString* tmpString =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
-//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
-//    paragraphStyle.alignment = NSTextAlignmentCenter;
-//    UIFont *labelFont = [UIFont fontWithName:@"Avenir-Medium" size:12];
-//    
-//    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"%@",tmpString]];
-//    [attrString addAttribute:NSFontAttributeName
-//                       value:[UIFont fontWithName:@"Avenir-Medium" size:12]
-//                       range:NSMakeRange(0, 4)];
-//
-//    [attrString addAttribute:NSFontAttributeName
-//                       value:[UIFont fontWithName:@"Avenir-Heavy" size:12]
-//                       range:NSMakeRange(6, 9)];
-//
-//    borrowerDealDetailViewTextField.attributedText = attrString;
+    
+    
+    
+    NSString* tmpString =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.alignment = NSTextAlignmentCenter;
+    //UIFont *labelFont = [UIFont fontWithName:@"Avenir-Medium" size:12];
+    
+    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"%@",tmpString]];
+    [attrString addAttribute:NSFontAttributeName
+                       value:[UIFont fontWithName:@"Avenir-Medium" size:12]
+                       range:NSMakeRange(0, 4)];
+
+    [attrString addAttribute:NSFontAttributeName
+                       value:[UIFont fontWithName:@"Avenir-Heavy" size:12]
+                       range:NSMakeRange(14, 9)];
+    
+    
+    
+
+    borrowerDealDetailViewTextField.attributedText = attrString;
     
     itemDealDetailViewTextField.text = [_deal objectForKey:@"item"];
     
@@ -85,8 +91,12 @@
     [dateFormat setDateStyle:NSDateFormatterMediumStyle];
     NSString *dateString = [dateFormat stringFromDate:date];
    // NSLog(@"Date: %@", dateString);
-    
+    if ([_deal objectForKey:@"borrower"] == [NSString stringWithFormat:@""] ) {
+        borrowerDealDetailViewTextField.text = [NSString stringWithFormat:@"Lent on %@", dateString];
+    } else{
+        
     borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], dateString];
+        }
     
     NSDate *date1 = [_deal objectForKey:@"enddate"];
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -94,7 +104,11 @@
     NSString *dateString1 = [dateFormat1 stringFromDate:date1];
     //NSLog(@"Date: %@", dateString1);
     endDateDealDetailViewTextField.text = dateString1;
-      returnSentenceOutlet.text = [NSString stringWithFormat:@"And is returning item on %@", dateString1];
+    if ([_deal objectForKey:@"enddate"] == nil) {
+        returnSentenceOutlet.text = nil;
+    }else{
+    returnSentenceOutlet.text = [NSString stringWithFormat:@"And is returning item on %@", dateString1];
+    }
     
                                            
     descriptionDealDetailViewTextView.text = [_deal objectForKey:@"description"];
@@ -170,9 +184,10 @@
     }
 }
 
--(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result error:(NSError*)error
 {
-    
+    [self dismissModalViewControllerAnimated:YES];
+
 }
 
 

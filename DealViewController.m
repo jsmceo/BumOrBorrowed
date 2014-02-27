@@ -122,7 +122,7 @@
     //deal [@"dealtitle"] = dealNameTextField.text;
     deal [@"dealtitle"] =[NSString stringWithFormat: @"%@ Borrowed %@", borrowerTextField.text, itemTextField.text];
     
-    deal [@"borrower"] = borrowerTextField.text;
+    
     deal [@"item"] = itemTextField.text;
     deal [@"description"] = descriptionTextField.text;
     deal [@"isdealdone"] = @NO;
@@ -135,6 +135,11 @@
         deal [@"FBID"] = @"";
     }else{
         deal [@"FBID"] = FBID;
+    }
+    if ((borrowerTextField.text == nil)) {
+        deal [@"borrower"] = nil;
+    }else{
+         deal [@"borrower"] = borrowerTextField.text;
     }
 
     
