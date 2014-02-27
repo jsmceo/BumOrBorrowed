@@ -545,6 +545,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjJ-gF-42k" customClass="PFImageView">
                                             <rect key="frame" x="8" y="8" width="304" height="158"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.3490196168422699" green="0.73333334922790527" blue="0.65490198135375977" alpha="0.33000000000000002" colorSpace="deviceRGB"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K9q-Ff-grY">
                                             <rect key="frame" x="8" y="103" width="304" height="63"/>
