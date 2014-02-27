@@ -31,6 +31,11 @@
         NSFontAttributeName: [UIFont fontWithName:@"AvenirNextCondensed-Medium" size:16]
     } forState:UIControlStateNormal];
 
+    UIImage* backImage = [UIImage imageNamed:@"ic_nav_back_normal"];
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:backImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    // disable back button text app-wide
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-1000, -1000) forBarMetrics:UIBarMetricsDefault];
+
 
     return YES;
     
