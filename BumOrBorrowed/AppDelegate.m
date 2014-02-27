@@ -23,7 +23,10 @@
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
-    
+
+
+    self.window.tintColor = [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1];
+
     return YES;
     
 }

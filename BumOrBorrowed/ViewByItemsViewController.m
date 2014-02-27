@@ -57,7 +57,7 @@
 
     self.navigationController.navigationBar.titleTextAttributes = @{
         NSFontAttributeName: [UIFont fontWithName:@"Avenir-Black" size:24],
-        NSForegroundColorAttributeName: [UIColor greenColor]
+        NSForegroundColorAttributeName: [UIColor colorWithRed:0.357 green:0.745 blue:0.667 alpha:1]
     };
 
     [[UIFont familyNames] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
