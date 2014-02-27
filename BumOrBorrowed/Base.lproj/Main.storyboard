@@ -618,7 +618,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </connections>
                             </segmentedControl>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="Ha2-Wg-rop">
+                        <barButtonItem key="rightBarButtonItem" image="ic_nav_add_normal" id="Ha2-Wg-rop">
                             <color key="tintColor" red="0.35686274509999999" green="0.74509803919999995" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="vXZ-lx-hvc" kind="push" id="qeg-wQ-to9"/>
@@ -948,6 +948,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <image name="facebook black .png" width="288" height="288"/>
         <image name="facebook_f_blue_color_match_attempt.png" width="501" height="501"/>
         <image name="free-camera-icon.png" width="983" height="702"/>
+        <image name="ic_nav_add_normal" width="38" height="38"/>
         <image name="info-256.png" width="216" height="212"/>
         <image name="slide-circle-black.png" width="261" height="257"/>
     </resources>
