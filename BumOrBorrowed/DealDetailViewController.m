@@ -16,6 +16,7 @@
 @interface DealDetailViewController ()
 {
     
+    __weak IBOutlet UIButton *returnButtonOutlet;
     __weak IBOutlet UITextField *borrowerDealDetailViewTextField;
     
     __weak IBOutlet UITextField *itemDealDetailViewTextField;
@@ -35,6 +36,7 @@
     __weak IBOutlet PFImageView *itemImageView;
     __weak IBOutlet UITextField *borrowerNumberField;
     __weak IBOutlet UILabel *phoneNumberLabel;
+    __weak IBOutlet UITextField *returnSentenceOutlet;
     
     UIImage *itemImage;
     PFObject *object;
@@ -54,9 +56,28 @@
     
  
     [super viewDidLoad];
+    returnButtonOutlet.layer.cornerRadius = 5;
 
 
-    borrowerDealDetailViewTextField.text = [_deal objectForKey:@"borrower"];
+
+    //borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on", [_deal objectForKey:@"borrower"]];
+    borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
+//    NSString* tmpString =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], [_deal objectForKey:@"startdate"]];
+//    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    paragraphStyle.alignment = NSTextAlignmentCenter;
+//    UIFont *labelFont = [UIFont fontWithName:@"Avenir-Medium" size:12];
+//    
+//    NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"%@",tmpString]];
+//    [attrString addAttribute:NSFontAttributeName
+//                       value:[UIFont fontWithName:@"Avenir-Medium" size:12]
+//                       range:NSMakeRange(0, 4)];
+//
+//    [attrString addAttribute:NSFontAttributeName
+//                       value:[UIFont fontWithName:@"Avenir-Heavy" size:12]
+//                       range:NSMakeRange(6, 9)];
+//
+//    borrowerDealDetailViewTextField.attributedText = attrString;
+    
     itemDealDetailViewTextField.text = [_deal objectForKey:@"item"];
     
     NSDate *date = [_deal objectForKey:@"startdate"];
@@ -64,7 +85,8 @@
     [dateFormat setDateStyle:NSDateFormatterMediumStyle];
     NSString *dateString = [dateFormat stringFromDate:date];
    // NSLog(@"Date: %@", dateString);
-    createdDateDealDetailViewTextField.text = dateString;
+    
+    borrowerDealDetailViewTextField.text =[NSString stringWithFormat:@"Lent to %@ on %@", [_deal objectForKey:@"borrower"], dateString];
     
     NSDate *date1 = [_deal objectForKey:@"enddate"];
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -72,13 +94,13 @@
     NSString *dateString1 = [dateFormat1 stringFromDate:date1];
     //NSLog(@"Date: %@", dateString1);
     endDateDealDetailViewTextField.text = dateString1;
+      returnSentenceOutlet.text = [NSString stringWithFormat:@"And is returning item on %@", dateString1];
     
                                            
     descriptionDealDetailViewTextView.text = [_deal objectForKey:@"description"];
     
     navBarDealTitle.title = [_deal objectForKey:@"dealtitle"];
-    
-  
+ 
     
    //returnItemButton.titleLabel.text = [NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]];
     [returnItemButton setTitle:[NSString stringWithFormat:@"Return %@!", [_deal objectForKey:@"item"]] forState:UIControlStateNormal];
@@ -146,6 +168,11 @@
         
         [self presentViewController:mvc animated:YES completion:nil];
     }
+}
+
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    
 }
 
 

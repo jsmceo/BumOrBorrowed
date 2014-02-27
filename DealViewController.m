@@ -48,8 +48,11 @@
 
 @implementation DealViewController
 
+
 - (void)viewDidLoad
 {
+    
+    
     
     lendOutButton.layer.cornerRadius = 5;
   
